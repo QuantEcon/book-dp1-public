@@ -99,11 +99,11 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #935d8c;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #7f7f7f 15%, #9bc7ff 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #7f7f7f 15%, #9bc7ff 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #7f7f7f 15%, #9bc7ff 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #7f7f7f 15%, #9bc7ff 85%);
+		background-color: #1552a1;
+		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #000000 15%, #1552a1 85%);
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #000000 15%, #1552a1 85%);
+		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #000000 15%, #1552a1 85%);
+		background-image: url("images/overlay.png"), linear-gradient(45deg, #000000 15%, #1552a1 85%);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -120,7 +120,7 @@ input, select, textarea {
 /* Type */
 
 	body {
-		background-color: #935d8c;
+		background-color: #1552a1;
 		color: rgba(255, 255, 255, 0.65);
 	}
 
@@ -194,7 +194,7 @@ input, select, textarea {
 		}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-weight: 300;
+		font-weight: 350;
 		line-height: 1.5;
 		margin: 0 0 0.7em 0;
 		letter-spacing: -0.025em;
@@ -2637,26 +2637,26 @@ input, select, textarea {
 	}
 
 	header.major {
-		margin-bottom: 3em;
+		margin-bottom: 0em;
 	}
 
 		header.major h2 {
 			font-size: 2em;
 		}
 
-			header.major h2:after {
+			/* header.major h2:after {
 				display: block;
 				content: '';
 				width: 3.25em;
 				height: 2px;
 				margin: 0.7em 0 1em 0;
 				border-radius: 2px;
-			}
+			} */
 
-				section.special header.major h2:after, article.special header.major h2:after {
+				/* section.special header.major h2:after, article.special header.major h2:after {
 					margin-left: auto;
 					margin-right: auto;
-				}
+				} */
 
 		header.major p {
 			font-size: 1.25em;
@@ -2667,10 +2667,10 @@ input, select, textarea {
 			text-align: center;
 		}
 
-			header.major.special h2:after {
+			/* header.major.special h2:after {
 				margin-left: auto;
 				margin-right: auto;
-			}
+			} */
 
 	footer.major {
 		margin-top: 3em;
@@ -2701,9 +2701,9 @@ input, select, textarea {
 
 	}
 
-	header.major h2:after {
+	/* header.major h2:after {
 		background-color: rgba(255, 255, 255, 0.35);
-	}
+	} */
 
 /* Table */
 
@@ -2999,7 +2999,7 @@ input, select, textarea {
 
 		.spotlight .image {
 			display: inline-block;
-			margin-left: 4em;
+			margin-left: 9em;
 			padding: 0.65em;
 			border-radius: 100%;
 			border: solid 1px;
@@ -3546,10 +3546,10 @@ input, select, textarea {
 
 		#main header.major h2:after {
 			background-color: #dddddd;
-			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
+			/* background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -ms-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
-			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
+			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0); */
 		}
 
 		#main table tbody tr {
@@ -3783,3 +3783,7 @@ input, select, textarea {
 			}
 
 		}
+
+	label {
+			white-space: pre;
+		 }
