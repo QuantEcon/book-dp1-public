@@ -2370,8 +2370,8 @@ input, select, textarea {
 	}
 
 	table {
-		margin: 0 0 2em 0;
-		width: 100%;
+		margin: 0 0 0 0;
+		width: 70%;
 	}
 
 		table tbody tr {
@@ -2393,16 +2393,16 @@ input, select, textarea {
 			font-size: 0.9em;
 			font-weight: 400;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			text-align: center;
 		}
 
-		table thead {
+		/* table thead {
 			border-bottom: solid 2px #efefef;
-		}
+		} */
 
-		table tfoot {
+		/* table tfoot {
 			border-top: solid 2px #efefef;
-		}
+		} */
 
 		table.alt {
 			border-collapse: separate;
