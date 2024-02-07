@@ -69,6 +69,7 @@ jobs:
         run: |
           mkdir -p website/code-book
           cp -r code-book/_build/html/ website/code-book/
+          ls -a website/code-book/
       - name: Save Build as Artifact
         uses: actions/upload-artifact@v1
         with:
