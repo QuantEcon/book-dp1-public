@@ -1,0 +1,70 @@
+title: Dynamic Programming
+subtitle: Julia and Python Code
+author: Thomas J. Sargent & John Stachurski
+logo: _static/qe-logo.png
+#description: This website presents a set of lectures on dynamic programming for economics, designed and written by Thomas J. Sargent and John Stachurski.
+
+execute:
+  execute_notebooks: "cache"
+  timeout: 600 # 10 minutes
+  allow_errors: true
+
+only_build_toc_files: true
+
+
+
+#html:
+  #baseurl: https://python.quantecon.org/
+
+#latex:
+  #latex_documents:
+     #targetname: quantecon-dynamic-programming.tex
+
+sphinx:
+  extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter]
+  config:
+    html_favicon: _static/lectures-favicon.ico
+    html_theme: quantecon_book_theme
+    html_static_path: ['_static']
+    html_theme_options:
+      header_organisation_url: https://quantecon.org
+      header_organisation: QuantEcon
+      repository_url: https://github.com/orectique/book-dp1
+      #nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
+      twitter: quantecon
+      twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
+      og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
+      #description: This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.
+      #keywords: Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski
+      #analytics:
+        #google_analytics_id: G-X7DH1M2DPY
+      launch_buttons:
+        notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+        binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+        colab_url                 : https://colab.research.google.com
+        thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+    mathjax3_config:
+      tex:
+        macros:
+          "argmax" : "arg\\,max"
+          "argmin" : "arg\\,min"
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    rediraffe_redirects:
+      index_toc.md: intro.md
+    tojupyter_static_file_path: ["source/_static", "_static"]
+    tojupyter_target_html: true
+    #tojupyter_urlpath: "https://python-programming.quantecon.org/"
+    #tojupyter_image_urlpath: "https://python-programming.quantecon.org/_static/"
+    tojupyter_lang_synonyms: ["julia-1.9", "julia"]
+    tojupyter_kernels:
+      julia:
+        kernelspec:
+          display_name: Julia
+          language: julia
+          name: julia-1.9
+      python:
+        kernelspec:
+          display_name: Python
+          language: python
+          name: python3
+    tojupyter_images_markdown: true

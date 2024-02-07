@@ -1,0 +1,86 @@
+name: Build Project [using jupyter-book]
+on: [push]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Anaconda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          auto-activate-base: true
+          miniconda-version: 'latest'
+          python-version: "3.10"
+          environment-file: environment.yml
+          activate-environment: dp1
+      - name: Install latex dependencies
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get install -y     \
+            texlive-latex-recommended \
+            texlive-latex-extra       \
+            texlive-fonts-recommended \
+            texlive-fonts-extra       \
+            texlive-xetex             \
+            latexmk                   \
+            xindy                     \
+            dvipng                    \
+            cm-super                  \
+            msttcorefonts
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: 1.9.3
+      - name: Install IJulia and Setup Project
+        shell: bash
+        run: |
+          julia -e 'using Pkg; ENV["PYTHON"]="/usr/share/miniconda3/python"; Pkg.add(["PyCall", "Conda", "PyPlot", "IJulia"]); using Conda; Conda.add("matplotlib"); using PyPlot;'
+      - name: Display Conda Environment Versions
+        shell: bash -l {0}
+        run: conda list
+      - name: Display Pip Versions
+        shell: bash -l {0}
+        run: pip list
+      
+        # - name: Download "build" folder (cache)
+      #   uses: dawidd6/action-download-artifact@v2
+      #   with:
+      #     workflow: cache.yml
+      #     branch: main
+      #     name: build-cache
+      #     path: _build
+      
+      # Build Code Book (HTML)
+      - name: Build Code Book (HTML)
+        shell: bash -l {0}
+        run: |
+          python create_code_book.py
+      - name: Upload Execution Reports
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: execution-reports
+          path: code-book/_build/html/reports
+      # Assemble Website
+      - name: Build Code Book (HTML)
+        shell: bash -l {0}
+        run: |
+          mkdir -p website/code-book
+          cp -r code-book/_build/html/ website/code-book/
+      - name: Save Build as Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: website
+          path: website
+      - name: Preview Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: website
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Preview Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

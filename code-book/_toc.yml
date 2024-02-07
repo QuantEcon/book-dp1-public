@@ -1,0 +1,31 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+# - url: https://dp.quantecon.org/
+#   title: Home (Landing Page)
+
+format: jb-book
+root: intro
+parts: 
+  - caption: Julia
+    chapters:
+    - file: jl/introductions
+    - file: jl/operators_fixed_points
+    - file: jl/markov_dynamics
+    - file: jl/optimal_stopping
+    - file: jl/markov_decision_processes
+    - file: jl/stochastic_discounting
+    - file: jl/nonlinear_valuation
+    - file: jl/recursive_decision_processes
+  - caption: Python
+    chapters:
+    - file: py/introductions
+    - file: py/operators_fixed_points
+    - file: py/markov_dynamics
+    - file: py/optimal_stopping
+    - file: py/markov_decision_processes
+    - file: py/stochastic_discounting
+    - file: py/nonlinear_valuation
+    - file: py/recursive_decision_processes
+  - caption: Others
+    chapters:
+    - file: status.md
