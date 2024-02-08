@@ -1,4 +1,4 @@
-title: Dynamic Programming
+title: Dynamic Programming Vol 1
 subtitle: Julia and Python Code
 author: Thomas J. Sargent & John Stachurski
 logo: _static/qe-logo.png
@@ -10,8 +10,6 @@ execute:
   allow_errors: true
 
 only_build_toc_files: true
-
-
 
 #html:
   #baseurl: https://python.quantecon.org/
@@ -29,20 +27,16 @@ sphinx:
     html_theme_options:
       header_organisation_url: https://quantecon.org
       header_organisation: QuantEcon
-      repository_url: https://github.com/orectique/book-dp1
-      #nb_repository_url: https://github.com/QuantEcon/lecture-python-programming.notebooks
+      repository_url: https://github.com/quantecon/book-dp1-public/code-book/
+      #nb_repository_url: 
       twitter: quantecon
       twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
       og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
-      #description: This website presents a set of lectures on python programming for economics, designed and written by Thomas J. Sargent and John Stachurski.
-      #keywords: Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski
-      #analytics:
-        #google_analytics_id: G-X7DH1M2DPY
-      launch_buttons:
-        notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-        binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-        colab_url                 : https://colab.research.google.com
-        thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+      # launch_buttons:
+      #   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
+      #   binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+      #   colab_url                 : https://colab.research.google.com
+      #   thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
     mathjax3_config:
       tex:
         macros:
@@ -53,8 +47,8 @@ sphinx:
       index_toc.md: intro.md
     tojupyter_static_file_path: ["source/_static", "_static"]
     tojupyter_target_html: true
-    #tojupyter_urlpath: "https://python-programming.quantecon.org/"
-    #tojupyter_image_urlpath: "https://python-programming.quantecon.org/_static/"
+    tojupyter_urlpath: "https://dp1.quantecon.org/"
+    tojupyter_image_urlpath: "https://python-programming.quantecon.org/_static/"
     tojupyter_lang_synonyms: ["julia-1.9", "julia"]
     tojupyter_kernels:
       julia:
