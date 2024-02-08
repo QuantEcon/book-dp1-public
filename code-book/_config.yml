@@ -19,7 +19,7 @@ only_build_toc_files: true
      #targetname: quantecon-dynamic-programming.tex
 
 sphinx:
-  extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx-design]
+  extra_extensions: [sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinx_design]
   config:
     html_favicon: _static/lectures-favicon.ico
     html_theme: quantecon_book_theme
