@@ -17,8 +17,8 @@ kernelspec:
 
 This website provides Julia and Python code for the textbook [Dynamic Programming](https://dp.quantecon.org/).
 
-```{card} Return to Dynamic Programming Vol 1
-:link: https://dp.quantecon.org
+```{card} Return to Dynamic Programming Vol 1 Landing Page
+:link: ../
 ```
 
 ```{tableofcontents}
