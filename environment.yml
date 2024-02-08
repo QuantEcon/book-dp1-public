@@ -12,6 +12,7 @@ dependencies:
     - sphinx-tojupyter==0.3.0
     - sphinxext-rediraffe==0.2.7
     - sphinx-exercise==0.4.1
+    - sphinx-design
     - ghp-import==2.1.0
     - sphinxcontrib-youtube==1.2.0
     - sphinx-togglebutton==0.3.2
