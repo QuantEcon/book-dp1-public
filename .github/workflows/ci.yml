@@ -1,7 +1,7 @@
 name: Build Project [using jupyter-book]
 on: [push]
 jobs:
-  tests:
+  preview:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
