@@ -9,6 +9,7 @@ Stachurski](https://johnstachurski.net/).
 | website | HTML files that build the website |
 | pdf | PDF of the book |
 | code | Public source of `py` and `jl` code |
+| slides | Public source of supporting slides |
 
 ## PDF
 
