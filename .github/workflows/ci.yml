@@ -1,0 +1,19 @@
+name: Build Project [using jupyter-book]
+on: [push]
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Push website files to netlify
+      - name: Preview Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: website
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Preview Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
