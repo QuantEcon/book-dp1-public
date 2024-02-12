@@ -1,7 +1,4 @@
 .DS_Store
 *./DS_Store
-website/_build
-website/code-book/
-code-book/_build
 .ipynb_checkpoints
 __pycache__
