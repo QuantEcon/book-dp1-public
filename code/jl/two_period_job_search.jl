@@ -53,7 +53,7 @@ end
 
 " Plot two-period value function and res wage. "
 function fig_v1(model=default_model; savefig=false, 
-                  figname="./figures/iid_job_search_0.pdf", fs=18)
+                  figname="../figures/iid_job_search_0.pdf", fs=18)
 
     (; n, w_vals, ϕ, β, c) = model
 

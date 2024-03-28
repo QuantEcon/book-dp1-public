@@ -69,6 +69,6 @@ ax.text(2.4, -0.15, L"v", fontsize=22)
 
 plt.show()
 
-file_name = "./figures/optimality_illustration_1.pdf"
+file_name = "../figures/optimality_illustration_1.pdf"
 fig.savefig(file_name)
 

@@ -24,10 +24,8 @@ function get_value(σ, model)
     for (i, j) in product(w_idx, y_idx)
             w, y, w′ = w_grid[i], y_grid[j], w_grid[σ[i, j]]
             r_σ[i, j] = u(w + y - w′/R)
-        for (i′, j′) in product(w_idx, y_idx)
-            if i′ == σ[i, j]
-                P_σ[i, j, i′, j′] = Q[j, j′]
-            end
+        for j′ in y_idx
+            P_σ[i, j, σ[i, j], j′] = Q[j, j′]
         end
     end
     # Reshape for matrix algebra

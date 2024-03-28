@@ -12,7 +12,7 @@ x1 = (T(x0) - DT(x0) * x0) / (1 - DT(x0))
 
 fs = 16
 
-function plot_45(; file_name="./figures/newton_1.pdf",
+function plot_45(; file_name="../figures/newton_1.pdf",
                  xmin=0.0, xmax=2.6,
                  savefig=false)
 

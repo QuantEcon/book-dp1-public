@@ -21,7 +21,7 @@ PyPlot.matplotlib[:rc]("text", usetex=true) # allow tex rendering
 fontsize=16
 
 function plot_v(; savefig=false, 
-                  figname="./figures/val_consumption_1.pdf")
+                  figname="../figures/val_consumption_1.pdf")
     fig, ax = plt.subplots(figsize=(10, 5.2))
     x_vals, v = compute_v()
     ax.plot(x_vals, v, lw=2, alpha=0.7, label=L"v")

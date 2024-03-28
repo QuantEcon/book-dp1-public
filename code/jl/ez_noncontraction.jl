@@ -11,7 +11,7 @@ w_grid = LinRange(0.001, 2.0, 200)
 
 
 function plot_F(; savefig=false, 
-                  figname="./figures/ez_noncontraction.pdf",
+                  figname="../figures/ez_noncontraction.pdf",
                   fs=16)
 
     fig, ax = plt.subplots(figsize=(9, 5.2))

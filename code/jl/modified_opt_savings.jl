@@ -187,7 +187,7 @@ fontsize=16
 
 
 function plot_contours(; savefig=false, 
-                         figname="./figures/modified_opt_savings_1.pdf")
+                         figname="../figures/modified_opt_savings_1.pdf")
 
     model = create_savings_model()
     (; β, γ, η_grid, ϕ, w_grid, y_grid, Q) = model
@@ -223,7 +223,7 @@ end
 
 
 function plot_policies(; savefig=false, 
-                         figname="./figures/modified_opt_savings_2.pdf")
+                         figname="../figures/modified_opt_savings_2.pdf")
 
     model = create_savings_model()
     (; β, γ, η_grid, ϕ, w_grid, y_grid, Q) = model
@@ -250,7 +250,7 @@ end
 
 function plot_time_series(; m=2_000,
                            savefig=false, 
-                           figname="./figures/modified_opt_savings_ts.pdf")
+                           figname="../figures/modified_opt_savings_ts.pdf")
 
     w_series = simulate_wealth(m)
     fig, ax = plt.subplots(figsize=(9, 5.2))
@@ -266,7 +266,7 @@ end
 
 function plot_histogram(; m=1_000_000,
                            savefig=false, 
-                           figname="./figures/modified_opt_savings_hist.pdf")
+                           figname="../figures/modified_opt_savings_hist.pdf")
 
     w_series = simulate_wealth(m)
     g = round(gini(sort(w_series)), digits=2)
@@ -284,7 +284,7 @@ end
 
 function plot_lorenz(; m=1_000_000,
                            savefig=false, 
-                           figname="./figures/modified_opt_savings_lorenz.pdf")
+                           figname="../figures/modified_opt_savings_lorenz.pdf")
 
     w_series = simulate_wealth(m)
     (; F, L) = lorenz(sort(w_series))

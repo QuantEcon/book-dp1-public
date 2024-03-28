@@ -28,5 +28,5 @@ ax.legend(frameon=false, fontsize=fontsize)
 
 plt.show()
 
-fig.savefig("./figures/fosd_tauchen_1.pdf")
+fig.savefig("../figures/fosd_tauchen_1.pdf")
 

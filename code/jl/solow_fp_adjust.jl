@@ -60,6 +60,6 @@ end
 
 plt.show()
 
-fig.savefig("./figures/solow_fp_adjust.pdf")
+fig.savefig("../figures/solow_fp_adjust.pdf")
 
 

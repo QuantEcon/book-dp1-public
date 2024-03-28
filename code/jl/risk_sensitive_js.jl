@@ -63,7 +63,7 @@ fontsize=16
 
 function plot_main(; theta_vals=(-10, 0.0001, 0.1),
                      savefig=false, 
-                     figname="./figures/risk_sensitive_js.pdf")
+                     figname="../figures/risk_sensitive_js.pdf")
 
     fig, axes = plt.subplots(length(theta_vals), 1, figsize=(9, 22))
 

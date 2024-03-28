@@ -58,7 +58,7 @@ default_model = create_js_with_sep_model()
 function plot_main(; model=default_model,
                      method="vfi", 
                      savefig=false, 
-                     figname="./figures/markov_js_with_sep_1.pdf")
+                     figname="../figures/markov_js_with_sep_1.pdf")
     (; n, w_vals, P, β, c, α) = model
     v_star, σ_star = vfi(model)
 
@@ -89,7 +89,7 @@ end
 
 function plot_w_stars(; α_vals=LinRange(0.0, 1.0, 10),
                         savefig=false, 
-                        figname="./figures/markov_js_with_sep_2.pdf")
+                        figname="../figures/markov_js_with_sep_2.pdf")
 
     w_star_vec = similar(α_vals)
     for (i_α, α) in enumerate(α_vals)

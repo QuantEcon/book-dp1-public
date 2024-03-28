@@ -86,7 +86,7 @@ default_model = create_markov_js_model()
 function plot_main(; model=default_model,
                      method="vfi", 
                      savefig=false, 
-                     figname="./figures/markov_js_1.pdf")
+                     figname="../figures/markov_js_1.pdf")
     (; n, w_vals, P, β, c) = model
 
 

@@ -39,5 +39,5 @@ ax.set_xlim(1.8, 3.2)
 ax.set_ylim(2.8, 6.1)
 
 plt.show()
-fig.savefig("./figures/linear_iter_fig_1.pdf")
+fig.savefig("../figures/linear_iter_fig_1.pdf")
 

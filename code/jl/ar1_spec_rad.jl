@@ -74,7 +74,7 @@ fs=14
 
 function plot_beta_sim(; T=80,
                          savefig=false, 
-                         figname="./figures/ar1_spec_rad.pdf")
+                         figname="../figures/ar1_spec_rad.pdf")
     β_vals = zeros(T)
     Z = 1
     for t in 1:T

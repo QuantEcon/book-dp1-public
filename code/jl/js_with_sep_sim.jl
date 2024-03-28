@@ -56,7 +56,7 @@ fontsize=16
 
 function plot_status(; ts_length=200,
                       savefig=false, 
-                      figname="./figures/js_with_sep_sim_1.pdf")
+                      figname="../figures/js_with_sep_sim_1.pdf")
 
     W, E = sim_outcomes()
     fs = 16

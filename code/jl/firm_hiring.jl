@@ -78,7 +78,7 @@ PyPlot.matplotlib[:rc]("text", usetex=true) # allow tex rendering
 fontsize=14
 
 function plot_policy(; savefig=false, 
-                    figname="./figures/firm_hiring_pol.pdf")
+                    figname="../figures/firm_hiring_pol.pdf")
     model = create_hiring_model()
     (; β, κ, α, p, w, l_grid, z_grid, Q) = model
     σ_star = optimistic_policy_iteration(model)
@@ -126,7 +126,7 @@ end
 
 
 function plot_sim(; savefig=false, 
-                    figname="./figures/firm_hiring_ts.pdf",
+                    figname="../figures/firm_hiring_ts.pdf",
                     ts_length = 250)
 
     model = create_hiring_model()
@@ -147,7 +147,7 @@ end
 
 
 function plot_growth(; savefig=false, 
-                    figname="./figures/firm_hiring_g.pdf",
+                    figname="../figures/firm_hiring_g.pdf",
                     ts_length = 10_000_000)
 
     model = create_hiring_model()

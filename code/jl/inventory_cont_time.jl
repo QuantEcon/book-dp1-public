@@ -57,7 +57,7 @@ ax.set_xlabel("time", fontsize=12)
 ax.set_ylabel("inventory", fontsize=12)
 ax.legend(fontsize=12)
 
-plt.savefig("./figures/inventory_cont_time_1.pdf")
+plt.savefig("../figures/inventory_cont_time_1.pdf")
 plt.show()
 
 

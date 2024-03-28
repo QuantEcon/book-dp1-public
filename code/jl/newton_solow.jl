@@ -14,7 +14,7 @@ q(x) = (g(x) - Dg(x) * x) / (1 - Dg(x))
 fs = 14
 kstar = ((s * A) / delta)^(1/(1 - alpha))
 
-function plot_45(; file_name="./figures/newton_solow_45.pdf",
+function plot_45(; file_name="../figures/newton_solow_45.pdf",
                  xmin=0.0, xmax=4,
                  save_fig=false)
 
@@ -71,7 +71,7 @@ end
 
 
 
-function plot_trajectories(; file_name="./figures/newton_solow_traj.pdf",
+function plot_trajectories(; file_name="../figures/newton_solow_traj.pdf",
                            save_fig=false)
 
     x_grid = collect(1:n)

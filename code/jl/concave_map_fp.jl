@@ -35,6 +35,6 @@ ax.set_ylim(0, 3)
 ax.set_xlim(0, 3)
 
 plt.show()
-#fig.savefig("./figures/concave_map_fp.pdf")
+#fig.savefig("../figures/concave_map_fp.pdf")
 
 

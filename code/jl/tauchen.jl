@@ -30,7 +30,7 @@ ax.plot(x_grid, psi_star.(x_grid),
         "-k", lw=2, alpha=0.6, label=L"\psi^*")
 ax.legend(fontsize=fontsize)
 if false
-    plt.savefig("./figures/tauchen_1.pdf")
+    plt.savefig("../figures/tauchen_1.pdf")
 end
 plt.show()
 

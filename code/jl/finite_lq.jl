@@ -10,7 +10,7 @@ function create_investment_model(;
         z_size=25)                           # Grid size for shock
     β = 1/(1+r) 
     y_grid = LinRange(y_min, y_max, y_size)  
-    mc = tauchen(y_size, ρ, ν)
+    mc = tauchen(z_size, ρ, ν)
     z_grid, Q = mc.state_values, mc.p
     return (; β, a_0, a_1, γ, c, y_grid, z_grid, Q)
 end
@@ -69,47 +69,44 @@ function value_iteration(model; tol=1e-5)
     return get_greedy(v_star, model)
 end
 
-
-
 "Get the value v_σ of policy σ."
 function get_value(σ, model)
     # Unpack and set up
     (; β, a_0, a_1, γ, c, y_grid, z_grid, Q) = model
-    yn, zn = length(y_grid), length(z_grid)
-    n = yn * zn
-    # Function to extract (i, j) from m = i + (j-1)*yn"
-    single_to_multi(m) = (m-1)%yn + 1, div(m-1, yn) + 1
-    # Allocate and create single index versions of P_σ and r_σ
-    P_σ = zeros(n, n)
-    r_σ = zeros(n)
-    for m in 1:n
-        i, j = single_to_multi(m)
-        y, z, y′ = y_grid[i], z_grid[j], y_grid[σ[i, j]]
-        r_σ[m] = (a_0 - a_1 * y + z - c) * y - γ * (y′ - y)^2
-        for m′ in 1:n
-            i′, j′ = single_to_multi(m′)
-            if i′ == σ[i, j]
-                P_σ[m, m′] = Q[j, j′]
+    n_y, n_z = length(y_grid), length(z_grid)
+    n = n_y * n_z
+    P_σ = zeros(n_y, n_z, n_y, n_z)
+    r_σ = zeros(n_y, n_z)
+    for i in 1:n_y
+        for j in 1:n_z
+            y, z, y′ = y_grid[i], z_grid[j], y_grid[σ[i, j]]
+            r_σ[i, j] = (a_0 - a_1 * y + z - c) * y - γ * (y′ - y)^2
+            for j′ in 1:n_z
+                    P_σ[i, j, σ[i, j], j′] = Q[j, j′]
             end
         end
     end
+    # Shape for matrix multiplication
+    r_σ = reshape(r_σ, n)
+    P_σ = reshape(P_σ, n, n)
     # Solve for the value of σ 
     v_σ = (I - β * P_σ) \ r_σ
     # Return as multi-index array
-    return reshape(v_σ, yn, zn)
+    return reshape(v_σ, n_y, n_z)
 end
 
 
 "Howard policy iteration routine."
-function policy_iteration(model)
-    yn, zn = length(model.y_grid), length(model.z_grid)
-    σ = ones(Int32, yn, zn)
-    i, error = 0, 1.0
-    while error > 0
-        v_σ = get_value(σ, model)
-        σ_new = get_greedy(v_σ, model)
-        error = maximum(abs.(σ_new - σ))
-        σ = σ_new
+function policy_iteration(model, tol=1e-5)
+    n_y, n_z = length(model.y_grid), length(model.z_grid)
+    σ = ones(Int32, n_y, n_z)
+    v_σ = get_value(σ, model)
+    i, error = 0, tol+1
+    while error > tol
+        σ = get_greedy(v_σ, model)
+        v_σ_new = get_value(σ, model)
+        error = maximum(abs.(v_σ - v_σ_new))
+        v_σ = v_σ_new
         i = i + 1
         println("Concluded loop $i with error $error.")
     end
@@ -151,7 +148,7 @@ function plot_policy()
     plt.show()
 end
 
-function plot_sim(; savefig=false, figname="./figures/finite_lq_1.pdf")
+function plot_sim(; savefig=false, figname="../figures/finite_lq_1.pdf")
     ts_length = 200
 
     fig, axes = plt.subplots(4, 1, figsize=(9, 11.2))
@@ -191,12 +188,12 @@ end
 
 function plot_timing(; m_vals=collect(range(1, 600, step=10)),
                    savefig=false,
-                   figname="./figures/finite_lq_time.pdf"
+                   figname="../figures/finite_lq_time.pdf"
     )
     model = create_investment_model()
-    #println("Running Howard policy iteration.")
-    #pi_time = @elapsed σ_pi = policy_iteration(model)
-    #println("PI completed in $pi_time seconds.")
+    println("Running Howard policy iteration.")
+    pi_time = @elapsed σ_pi = policy_iteration(model)
+    println("PI completed in $pi_time seconds.")
     println("Running value function iteration.")
     vfi_time = @elapsed σ_vfi = value_iteration(model, tol=1e-5)
     println("VFI completed in $vfi_time seconds.")
@@ -211,8 +208,8 @@ function plot_timing(; m_vals=collect(range(1, 600, step=10)),
         push!(opi_times, opi_time)
     end
     fig, ax = plt.subplots(figsize=(9, 5.2))
-    #ax.plot(m_vals, fill(pi_time, length(m_vals)), 
-    #        lw=2, label="Howard policy iteration")
+    ax.plot(m_vals, fill(pi_time, length(m_vals)), 
+            lw=2, label="Howard policy iteration")
     ax.plot(m_vals, fill(vfi_time, length(m_vals)), 
             lw=2, label="value function iteration")
     ax.plot(m_vals, opi_times, lw=2, label="optimistic policy iteration")
@@ -223,6 +220,5 @@ function plot_timing(; m_vals=collect(range(1, 600, step=10)),
     if savefig
         fig.savefig(figname)
     end
-    return (vfi_time, opi_times)
-    #return (pi_time, vfi_time, opi_times)
+    return (pi_time, vfi_time, opi_times)
 end

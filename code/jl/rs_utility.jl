@@ -35,7 +35,7 @@ PyPlot.matplotlib[:rc]("text", usetex=true) # allow tex rendering
 fontsize=16
 
 function plot_v(; savefig=false, 
-                  figname="./figures/rs_utility_1.pdf")
+                  figname="../figures/rs_utility_1.pdf")
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     model = create_rs_utility_model()
@@ -61,7 +61,7 @@ end
 
 
 function plot_multiple_v(; savefig=false, 
-                  figname="./figures/rs_utility_2.pdf")
+                  figname="../figures/rs_utility_2.pdf")
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     σ_vals = 0.05, 0.1

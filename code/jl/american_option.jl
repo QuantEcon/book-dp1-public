@@ -55,7 +55,7 @@ fontsize=16
 
 
 function plot_contours(; savefig=false, 
-                         figname="./figures/american_option_1.pdf")
+                         figname="../figures/american_option_1.pdf")
 
     model = create_american_option_model()
     (; t_vals, z_vals, w_vals, Q, φ, T, β, K, e) = model
@@ -94,7 +94,7 @@ end
 
 function plot_strike(; savefig=false, 
                        fontsize=12,
-                       figname="./figures/american_option_2.pdf")
+                       figname="../figures/american_option_2.pdf")
 
     model = create_american_option_model()
     (; t_vals, z_vals, w_vals, Q, φ, T, β, K, e) = model

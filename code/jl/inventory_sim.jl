@@ -1,16 +1,16 @@
-using Distributions, IterTools, QuantEcon
+using Distributions, QuantEcon, IterTools
 
 function create_inventory_model(; S=100,  # Order size
                                   s=10,   # Order threshold
                                   p=0.4)  # Demand parameter
     ϕ = Geometric(p)
-    h(x, d) = max(x - d, 0) + S*(x <= s)
-    return (; S, s, p, ϕ, h)
+    h(x, d) = max(x - d, 0) + S * (x <= s)
+    return (; S, s, ϕ, h)
 end
 
 "Simulate the inventory process."
 function sim_inventories(model; ts_length=200)
-    (; S, s, p, ϕ, h) = model
+    (; S, s, ϕ, h) = model
     X = Vector{Int32}(undef, ts_length)
     X[1] = S  # Initial condition
     for t in 1:(ts_length-1)
@@ -21,12 +21,12 @@ end
 
 "Compute the transition probabilities and state."
 function compute_mc(model; d_max=100)
-    (; S, s, p, ϕ, h) = model
+    (; S, s, ϕ, h) = model
     n = S + s + 1  # Size of state space
     state_vals = collect(0:(S + s))
     P = Matrix{Float64}(undef, n, n)
     for (i, j) in product(1:n, 1:n)
-        P[i, j] = sum((h(i-1, d) == j-1)*pdf(ϕ, d) for d in 0:d_max)
+        P[i, j] = sum((h(i-1, d) == j-1) * pdf(ϕ, d) for d in 0:d_max)
     end
     return MarkovChain(P, state_vals)
 end
@@ -46,9 +46,9 @@ PyPlot.matplotlib[:rc]("text", usetex=true) # allow tex rendering
 
 
 function plot_ts(model; fontsize=16, 
-                   figname="./figures/inventory_sim_1.pdf",
+                   figname="../figures/inventory_sim_1.pdf",
                    savefig=false)
-    (; S, s, p, ϕ, h) = model
+    (; S, s, ϕ, h) = model
     X = sim_inventories(model)
     fig, ax = plt.subplots(figsize=(9, 5.2))
     ax.plot(X, label=L"X_t", lw=3, alpha=0.6)
@@ -65,9 +65,9 @@ end
 
 
 function plot_hist(model; fontsize=16, 
-                   figname="./figures/inventory_sim_2.pdf",
+                   figname="../figures/inventory_sim_2.pdf",
                    savefig=false)
-    (; S, s, p, ϕ, h) = model
+    (; S, s, ϕ, h) = model
     state_values, ψ_star = compute_stationary_dist(model) 
     X = sim_inventories(model; ts_length=1_000_000)
     histogram = [mean(X .== i) for i in state_values]
