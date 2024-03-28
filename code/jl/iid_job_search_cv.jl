@@ -23,7 +23,7 @@ end
 " Plot the function g. "
 function fig_g(model=default_model; 
                savefig=false, fs=18,
-               figname="./figures/iid_job_search_g.pdf")
+               figname="../figures/iid_job_search_g.pdf")
 
     (; n, w_vals, ϕ, β, c) = model
     h_grid = collect(LinRange(600, max(c, n) / (1 - β), 100))
@@ -57,7 +57,7 @@ end
 " Plot the two ordered instances of function g. "
 function fig_tg(betas=[0.95, 0.96]; 
                savefig=false, fs=18,
-               figname="./figures/iid_job_search_tg.pdf")
+               figname="../figures/iid_job_search_tg.pdf")
 
     h_grid = collect(LinRange(600, 1200, 100))
     fig, ax = plt.subplots(figsize=(9, 5.5))
@@ -99,7 +99,7 @@ end
 function fig_cv(model=default_model;
                 fs=18,
                 savefig=false, 
-                figname="./figures/iid_job_search_4.pdf")
+                figname="../figures/iid_job_search_4.pdf")
 
     (; n, w_vals, ϕ, β, c) = model
     h_star, w_star = compute_hstar_wstar(model)
@@ -121,7 +121,7 @@ end
 function fig_bf(betas=LinRange(0.9, 0.99, 20); 
                 savefig=false, 
                 fs=16,
-                figname="./figures/iid_job_search_bf.pdf")
+                figname="../figures/iid_job_search_bf.pdf")
 
     h_vals = similar(betas)
     for (i, β) in enumerate(betas)

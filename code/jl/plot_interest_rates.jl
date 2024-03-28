@@ -1,7 +1,7 @@
 # Nominal interest rate from https://fred.stlouisfed.org/series/GS1
 # Real interest rate from https://fred.stlouisfed.org/series/WFII10
 #
-# Download as CSV files
+# Download as CSV files using download_interest_rates.jl
 #
 
 using DataFrames, CSV, PyPlot
@@ -18,6 +18,6 @@ function plot_rates(df; fontsize=16, savefig=true)
     ax.legend(fontsize=fontsize, frameon=false)
     plt.show()
     if savefig
-        fig.savefig("./figures/plot_interest_rates_"*r_type*".pdf")
+        fig.savefig("../figures/plot_interest_rates_"*r_type*".pdf")
     end
 end

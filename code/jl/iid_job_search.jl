@@ -43,7 +43,7 @@ default_model = create_job_search_model()
 function fig_vseq(model=default_model; 
                     k=3, 
                     savefig=false, 
-                    figname="./figures/iid_job_search_1.pdf",
+                    figname="../figures/iid_job_search_1.pdf",
                     fs=16)
 
     v = zero(model.w_vals)  
@@ -74,7 +74,7 @@ end
 " Plot the fixed point. "
 function fig_vstar(model=default_model; 
                    savefig=false, fs=18,
-                   figname="./figures/iid_job_search_3.pdf")
+                   figname="../figures/iid_job_search_3.pdf")
 
     (; n, w_vals, ϕ, β, c) = model
     v_star, σ_star = vfi(model)

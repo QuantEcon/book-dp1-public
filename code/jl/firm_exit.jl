@@ -56,7 +56,7 @@ fontsize=16
 
 
 function plot_val(; savefig=false, 
-                     figname="./figures/firm_exit_1.pdf")
+                     figname="../figures/firm_exit_1.pdf")
 
     fig, ax = plt.subplots(figsize=(9, 5.2))
 
@@ -81,7 +81,7 @@ end
 
 
 function plot_comparison(; savefig=false, 
-                     figname="./figures/firm_exit_2.pdf")
+                     figname="../figures/firm_exit_2.pdf")
 
     fig, ax = plt.subplots(figsize=(9, 5.2))
 

@@ -21,7 +21,7 @@ fontsize=14
 
 
 
-function plot_paths(; figname="./figures/lake_1.pdf", 
+function plot_paths(; figname="../figures/lake_1.pdf", 
                       savefig=false)
     path_length = 100
     x_path_1 = zeros(2, path_length)
@@ -98,7 +98,7 @@ function plot_paths(; figname="./figures/lake_1.pdf",
 end
 
 
-function plot_growth(; savefig=false, figname="./figures/lake_2.pdf")
+function plot_growth(; savefig=false, figname="../figures/lake_2.pdf")
 
 
     path_length = 100

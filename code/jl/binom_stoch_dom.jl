@@ -23,7 +23,7 @@ ax.plot(x, pdf(ψ), "-o", alpha=0.6, label=lb)
 ax.legend(fontsize=16, frameon=false)
 
 if false
-    fig.savefig("./figures/binom_stoch_dom.pdf")
+    fig.savefig("../figures/binom_stoch_dom.pdf")
 end
 
 plt.show()

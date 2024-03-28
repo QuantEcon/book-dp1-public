@@ -1,12 +1,13 @@
 include("s_approx.jl")
 using Distributions
-m(x) = max(x, 0)  # Convenience function
+
+f(x, a, d) = max(x - d, 0) + a  # Inventory update
 
 function create_inventory_model(; β=0.98,     # discount factor
                                   K=40,       # maximum inventory
                                   c=0.2, κ=2, # cost paramters
                                   p=0.6)      # demand parameter
-    ϕ(d) = (1 - p)^d * p        # demand pdf
+    ϕ(d) = (1 - p)^d * p        # demand distribution
     x_vals = collect(0:K)       # set of inventory levels
     return (; β, K, c, κ, p, ϕ, x_vals)
 end
@@ -16,7 +17,7 @@ function B(x, a, v, model; d_max=100)
     (; β, K, c, κ, p, ϕ, x_vals) = model
     revenue = sum(min(x, d) * ϕ(d) for d in 0:d_max) 
     current_profit = revenue - c * a - κ * (a > 0)
-    next_value = sum(v[m(x - d) + a + 1] * ϕ(d) for d in 0:d_max)
+    next_value = sum(v[f(x, a, d) + 1] * ϕ(d) for d in 0:d_max)
     return current_profit + β * next_value
 end
 
@@ -31,7 +32,7 @@ function T(v, model)
     return new_v
 end
 
-"Get a v-greedy policy.  Returns a zero-based array."
+"Get a v-greedy policy."
 function get_greedy(v, model)
     (; β, K, c, κ, p, ϕ, x_vals) = model
     σ_star = zero(x_vals)
@@ -71,14 +72,14 @@ function sim_inventories(ts_length=400, X_init=0)
     X[1] = X_init
     for t in 1:(ts_length-1)
         D = rand(G)
-        X[t+1] = m(X[t] - D) + σ_star[X[t] + 1]
+        X[t+1] = f(X[t],  σ_star[X[t] + 1], D)
     end
     return X
 end
 
 
 function plot_vstar_and_opt_policy(; fontsize=16, 
-                   figname="./figures/inventory_dp_vs.pdf",
+                   figname="../figures/inventory_dp_vs.pdf",
                    savefig=false)
     fig, axes = plt.subplots(2, 1, figsize=(8, 6.5))
 
@@ -99,7 +100,7 @@ function plot_vstar_and_opt_policy(; fontsize=16,
 end
 
 function plot_ts(; fontsize=16, 
-                   figname="./figures/inventory_dp_ts.pdf",
+                   figname="../figures/inventory_dp_ts.pdf",
                    savefig=false)
     X = sim_inventories()
     fig, ax = plt.subplots(figsize=(9, 5.5))

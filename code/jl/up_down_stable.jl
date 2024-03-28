@@ -45,7 +45,7 @@ ax.annotate(fps_label,
          fontsize=fs,
          arrowprops=Dict("arrowstyle"=>"->"))
     
-plt.savefig("./figures/up_down_stable.pdf")
+plt.savefig("../figures/up_down_stable.pdf")
 
 plt.show()
 
