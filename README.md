@@ -17,3 +17,7 @@ The PDF is available in `pdf/dp.pdf`
 
 Comments and feedback are very welcome.
 The easiest way to provide feedback is to open an issue above.
+
+## Website
+
+This repository hosts the public book website. 
