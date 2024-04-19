@@ -52,6 +52,6 @@ ax.set_yticks([])
 
 plt.show()
 
-file_name = "./figures/bellman_envelope.pdf"
+file_name = "../figures/bellman_envelope.pdf"
 fig.savefig(file_name)
 

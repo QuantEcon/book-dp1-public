@@ -47,7 +47,7 @@ ax.set_ylim(0, 2.6)
 
 plt.show()
 
-filename = "./figures/howard_newton_1.pdf"
+filename = "../figures/howard_newton_1.pdf"
 
 if true
     fig.savefig(filename)

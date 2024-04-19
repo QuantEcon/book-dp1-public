@@ -18,6 +18,6 @@ end
 ax.set_xlabel("time")
 plt.show()
 
-fig.savefig("./figures/random_walk_1.pdf")
+fig.savefig("../figures/random_walk_1.pdf")
 
 

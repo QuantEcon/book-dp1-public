@@ -111,7 +111,7 @@ function plot_timing(; m_vals=collect(range(1, 600, step=10)),
     ax.set_ylabel("time", fontsize=fontsize)
     plt.show()
     if savefig
-        fig.savefig("./figures/finite_opt_saving_2_1.pdf")
+        fig.savefig("../figures/finite_opt_saving_2_1.pdf")
     end
     return (pi_time, vfi_time, opi_times)
 end
@@ -137,7 +137,7 @@ end
 
 function plot_time_series(; m=2_000,
                            savefig=false, 
-                           figname="./figures/finite_opt_saving_ts.pdf")
+                           figname="../figures/finite_opt_saving_ts.pdf")
 
     w_series = simulate_wealth(m)
     fig, ax = plt.subplots(figsize=(9, 5.2))
@@ -152,7 +152,7 @@ end
 
 function plot_histogram(; m=1_000_000,
                            savefig=false, 
-                           figname="./figures/finite_opt_saving_hist.pdf")
+                           figname="../figures/finite_opt_saving_hist.pdf")
 
     w_series = simulate_wealth(m)
     g = round(gini(sort(w_series)), digits=2)
@@ -169,7 +169,7 @@ end
 
 function plot_lorenz(; m=1_000_000,
                            savefig=false, 
-                           figname="./figures/finite_opt_saving_lorenz.pdf")
+                           figname="../figures/finite_opt_saving_lorenz.pdf")
 
     w_series = simulate_wealth(m)
     (; F, L) = lorenz(sort(w_series))

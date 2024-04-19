@@ -44,6 +44,6 @@ ax.set_yticks([])
 
 plt.show()
 
-file_name = "./figures/v_star_illus.pdf"
+file_name = "../figures/v_star_illus.pdf"
 fig.savefig(file_name)
 

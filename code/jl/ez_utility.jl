@@ -47,7 +47,7 @@ fontsize=16
 
 function plot_convergence(; savefig=false, 
                   num_iter=100,
-                  figname="./figures/ez_utility_c.pdf")
+                  figname="../figures/ez_utility_c.pdf")
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     model = create_ez_utility_model()
@@ -81,7 +81,7 @@ end
 
 
 function plot_v(; savefig=false, 
-                  figname="./figures/ez_utility_1.pdf")
+                  figname="../figures/ez_utility_1.pdf")
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     model = create_ez_utility_model()
@@ -100,7 +100,7 @@ end
 
 function vary_gamma(; gamma_vals=[1.0, -8.0],
                   savefig=false, 
-                  figname="./figures/ez_utility_2.pdf")
+                  figname="../figures/ez_utility_2.pdf")
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     
@@ -123,7 +123,7 @@ end
 
 function vary_alpha(; alpha_vals=[0.5, 0.6],
                   savefig=false, 
-                  figname="./figures/ez_utility_3.pdf")
+                  figname="../figures/ez_utility_3.pdf")
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     
