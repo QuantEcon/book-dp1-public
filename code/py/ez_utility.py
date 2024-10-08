@@ -52,7 +52,7 @@ import matplotlib.pyplot as plt
 
 def plot_convergence(savefig=False,
                      num_iter=100,
-                     figname="./figures/ez_utility_c.pdf"):
+                     figname="../figures_py/ez_utility_c.png"):
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     model = create_ez_utility_model()
@@ -82,7 +82,7 @@ def plot_convergence(savefig=False,
 
 
 def plot_v(savefig=False,
-           figname="./figures/ez_utility_1.pdf"):
+           figname="../figures_py/ez_utility_1.png"):
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     model = create_ez_utility_model()
@@ -99,7 +99,7 @@ def plot_v(savefig=False,
 
 def vary_gamma(gamma_vals=[1.0, -8.0],
                savefig=False,
-               figname="./figures/ez_utility_2.pdf"):
+               figname="../figures_py/ez_utility_2.png"):
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
 
@@ -119,7 +119,7 @@ def vary_gamma(gamma_vals=[1.0, -8.0],
 
 def vary_alpha(alpha_vals=[0.5, 0.6],
                savefig=False,
-               figname="./figures/ez_utility_3.pdf"):
+               figname="../figures_py/ez_utility_3.png"):
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
 
@@ -135,3 +135,8 @@ def vary_alpha(alpha_vals=[0.5, 0.6],
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_convergence(savefig=True)
+plot_v(savefig=True)
+vary_gamma(savefig=True)
+vary_alpha(savefig=True)

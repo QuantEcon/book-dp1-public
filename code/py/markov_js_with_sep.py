@@ -7,6 +7,7 @@ from quantecon.markov import tauchen
 import numpy as np
 from collections import namedtuple
 from s_approx import successive_approx
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -54,15 +55,12 @@ def vfi(model):
 
 # == Plots == #
 
-import matplotlib.pyplot as plt
-
-
 default_model = create_js_with_sep_model()
 
 
 def plot_main(model=default_model,
               savefig=False,
-              figname="./figures/markov_js_with_sep_1.pdf"):
+              figname="../figures_py/markov_js_with_sep_1.png"):
     n, w_vals, P, β, c, α = model
     v_star, σ_star = vfi(model)
 
@@ -93,7 +91,7 @@ def plot_main(model=default_model,
 
 def plot_w_stars(α_vals=np.linspace(0.0, 1.0, 10),
                  savefig=False,
-                 figname="./figures/markov_js_with_sep_2.pdf"):
+                 figname="../figures_py/markov_js_with_sep_2.png"):
 
     w_star_vec = np.empty_like(α_vals)
     for (i_α, α) in enumerate(α_vals):
@@ -124,3 +122,6 @@ def plot_w_stars(α_vals=np.linspace(0.0, 1.0, 10),
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_main(savefig=True)
+plot_w_stars(savefig=True)

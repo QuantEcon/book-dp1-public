@@ -7,6 +7,7 @@ from quantecon.markov import tauchen
 import numpy as np
 from collections import namedtuple
 from s_approx import successive_approx
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -85,16 +86,13 @@ def policy_iteration(model):
 
 # == Plots == #
 
-import matplotlib.pyplot as plt
-
-
 default_model = create_markov_js_model()
 
 
 def plot_main(model=default_model,
                method="vfi",
                savefig=False,
-               figname="./figures/markov_js_vfix.png"):
+               figname="../figures_py/markov_js_vfix.png"):
     n, w_vals, P, β, c = model
 
     if method == "vfi":
@@ -115,3 +113,5 @@ def plot_main(model=default_model,
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_main(savefig=True)

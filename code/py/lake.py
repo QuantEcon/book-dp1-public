@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 α, λ, d, b = 0.01, 0.1, 0.02, 0.025
 g = b - d
@@ -14,10 +15,7 @@ print(np.allclose(A * x̄, (1 + g) * x̄))   # prints true
 
 # == Plots == #
 
-import matplotlib.pyplot as plt
-
-
-def plot_paths(figname="./figures/lake_1.pdf", savefig=False):
+def plot_paths(figname="../figures_py/lake_1.png", savefig=False):
 
     path_length = 100
     x_path_1 = np.zeros((2, path_length))
@@ -88,7 +86,7 @@ def plot_paths(figname="./figures/lake_1.pdf", savefig=False):
 
 
 
-def plot_growth(savefig=False, figname="./figures/lake_2.pdf"):
+def plot_growth(savefig=False, figname="../figures_py/lake_2.png"):
 
     path_length = 100
     x_0 = 2.1, 1.2
@@ -114,3 +112,6 @@ def plot_growth(savefig=False, figname="./figures/lake_2.pdf"):
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_paths(savefig=True)
+plot_growth(savefig=True)

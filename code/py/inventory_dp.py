@@ -3,6 +3,7 @@ from quantecon import compute_fixed_point
 import numpy as np
 from collections import namedtuple
 from numba import njit
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -70,9 +71,6 @@ def solve_inventory_model(v_init, model):
 
 # == Plots == #
 
-import matplotlib.pyplot as plt
-
-
 # Create an instance of the model and solve it
 model = create_inventory_model()
 β, K, c, κ, p = model
@@ -93,7 +91,7 @@ def sim_inventories(ts_length=400, X_init=0):
 
 
 def plot_vstar_and_opt_policy(fontsize=10,
-                   figname="./figures/inventory_dp_vs.pdf",
+                   figname="../figures_py/inventory_dp_vs.png",
                    savefig=False):
     fig, axes = plt.subplots(2, 1, figsize=(8, 6.5))
 
@@ -113,7 +111,7 @@ def plot_vstar_and_opt_policy(fontsize=10,
 
 
 def plot_ts(fontsize=10,
-            figname="./figures/inventory_dp_ts.pdf",
+            figname="../figures_py/inventory_dp_ts.png",
             savefig=False):
     X = sim_inventories()
     fig, ax = plt.subplots(figsize=(9, 5.5))
@@ -125,3 +123,6 @@ def plot_ts(fontsize=10,
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_vstar_and_opt_policy(savefig=True)
+plot_ts(savefig=True)

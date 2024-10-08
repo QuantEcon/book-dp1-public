@@ -117,7 +117,7 @@ function plot_w_stars(; α_vals=LinRange(0.0, 1.0, 10),
     ax.plot(α_vals, w_star_vec, lw=2, alpha=0.6, label="reservation wage")
     ax.legend(frameon=false, fontsize=fontsize)
     ax.set_xlabel(L"\alpha", fontsize=fontsize)
-    ax.set_xlabel(L"w", fontsize=fontsize)
+    ax.set_ylabel(L"w", fontsize=fontsize)
     plt.show()
     if savefig
         fig.savefig(figname)

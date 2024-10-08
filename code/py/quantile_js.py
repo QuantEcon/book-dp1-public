@@ -4,7 +4,8 @@ Job search with Markov wage draws and quantile preferences.
 """
 from quantecon import tauchen, MarkovChain
 import numpy as np
-from quantile_function import *
+from quantile_function import R
+import matplotlib.pyplot as plt
 
 "Creates an instance of the job search model."
 def create_markov_js_model(
@@ -31,15 +32,16 @@ def T_σ(v, σ, model):
     e = w_vals / (1 - β)
     return σ * e + (1 - σ) * h
 
-" Get a v-greedy policy."
+
 def get_greedy(v, model):
+    """Get a v-greedy policy."""
     n, w_vals, P, β, c, τ = model
     σ = w_vals / (1 - β) >= c + β * R(τ, v, P)
     return σ
 
 
-"Optimistic policy iteration routine."
 def optimistic_policy_iteration(model, tolerance=1e-5, m=100):
+    """Optimistic policy iteration routine."""
     n, w_vals, P, β, c, τ = model
     v = np.ones(n)
     error = tolerance + 1
@@ -57,12 +59,9 @@ def optimistic_policy_iteration(model, tolerance=1e-5, m=100):
 
 # == Plots == #
 
-import matplotlib.pyplot as plt
-
-
 def plot_main(tau_vals=(0.1, 0.25, 0.5, 0.6, 0.7, 0.8), 
                      savefig=False, 
-                     figname="./figures/quantile_js.pdf"):
+                     figname="../figures_py/quantile_js.png"):
 
     w_star_vals = np.zeros(len(tau_vals))
 
@@ -91,3 +90,4 @@ def plot_main(tau_vals=(0.1, 0.25, 0.5, 0.6, 0.7, 0.8),
     if savefig:
         fig.savefig(figname)
 
+plot_main(savefig=True)

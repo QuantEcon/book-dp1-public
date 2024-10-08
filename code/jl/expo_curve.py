@@ -1,41 +1,18 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.14.6
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-
-matplotlib.rc("text", usetex=True) # allow tex rendering
-fontsize=16
 from scipy.linalg import expm, eigvals
 
-# %matplotlib inline
+matplotlib.rc("text", usetex=True) # allow tex rendering
 
-# +
+fontsize = 16
+
 A = ((-2, -0.4, 0),
      (-1.4, -1, 2.2),
      (0, -2, -0.6))
 
 A = np.array(A)
-# -
-
 ev = eigvals(A)
-
-np.imag(ev)
-
-np.max(np.real(ev))
-
 h = 0.01
 s0 = 0.01 * np.array((1, 1, 1))
 
@@ -48,7 +25,6 @@ for i in range(6000):
     y.append(b)
     z.append(c)
 
-# +
 ax = plt.figure().add_subplot(projection='3d')
 
 ax.plot(x, y, z, label='$t \mapsto \mathrm{e}^{t A} u_0$')
@@ -67,8 +43,3 @@ ax.scatter(s0[0], s0[1], s0[2], color='k')
 
 plt.savefig("../figures/expo_curve_1.pdf")
 plt.show()
-# -
-
-
-
-

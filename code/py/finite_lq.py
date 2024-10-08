@@ -157,7 +157,7 @@ def optimistic_policy_iteration(model, tol=1e-5, m=100):
 import matplotlib.pyplot as plt
 
 
-def plot_policy(savefig=False, figname="./figures/finite_lq_0.pdf"):
+def plot_policy(savefig=False, figname="../figures_py/finite_lq_0.png"):
     model = create_investment_model()
     β, a_0, a_1, γ, c, y_grid, z_grid, Q = model
     σ_star = optimistic_policy_iteration(model)
@@ -171,7 +171,7 @@ def plot_policy(savefig=False, figname="./figures/finite_lq_0.pdf"):
         fig.savefig(figname)
 
 
-def plot_sim(savefig=False, figname="./figures/finite_lq_1.pdf"):
+def plot_sim(savefig=False, figname="../figures_py/finite_lq_1.png"):
     ts_length = 200
 
     fig, axes = plt.subplots(4, 1, figsize=(9, 11.2))
@@ -209,16 +209,14 @@ def plot_sim(savefig=False, figname="./figures/finite_lq_1.pdf"):
 
 def plot_timing(m_vals=np.arange(1, 601, 10),
                 savefig=False,
-                figname="./figures/finite_lq_time.pdf"
+                figname="../figures_py/finite_lq_time.png"
     ):
-    # NOTE: Uncomment the following lines in this function to
-    # include Policy iteration plot
     model = create_investment_model()
-    # print("Running Howard policy iteration.")
-    # t1 = time.time()
-    # σ_pi = policy_iteration(model)
-    # pi_time = time.time() - t1
-    # print(f"PI completed in {pi_time} seconds.")
+    print("Running Howard policy iteration.")
+    t1 = time.time()
+    σ_pi = policy_iteration(model)
+    pi_time = time.time() - t1
+    print(f"PI completed in {pi_time} seconds.")
     print("Running value function iteration.")
     t1 = time.time()
     σ_vfi = value_iteration(model)
@@ -236,8 +234,8 @@ def plot_timing(m_vals=np.arange(1, 601, 10),
     fig, ax = plt.subplots(figsize=(9, 5.2))
     ax.plot(m_vals, [vfi_time]*len(m_vals),
             linewidth=2, label="value function iteration")
-    # ax.plot(m_vals, [pi_time]*len(m_vals),
-    #         linewidth=2, label="Howard policy iteration")
+    ax.plot(m_vals, [pi_time]*len(m_vals),
+            linewidth=2, label="Howard policy iteration")
     ax.plot(m_vals, opi_times, linewidth=2, label="optimistic policy iteration")
     ax.legend(frameon=False)
     ax.set_xlabel(r"$m$")
@@ -246,3 +244,7 @@ def plot_timing(m_vals=np.arange(1, 601, 10),
     if savefig:
         fig.savefig(figname)
     return (vfi_time, opi_times)
+
+plot_policy(savefig=True)
+plot_sim(savefig=True)
+plot_timing(savefig=True)

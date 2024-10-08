@@ -9,6 +9,7 @@ from quantecon.markov import tauchen
 import numpy as np
 from numba import njit
 from collections import namedtuple
+import matplotlib.pyplot as plt
 
 # NamedTuple Model
 Model = namedtuple("Model", ("n", "w_vals", "P", "β", "c", "θ"))
@@ -63,13 +64,9 @@ def vfi(model):
 
 # == Plots == #
 
-
-import matplotlib.pyplot as plt
-
-
 def plot_main(theta_vals=(-10, 0.0001, 0.1),
               savefig=False,
-              figname="./figures/risk_sensitive_js.pdf"):
+              figname="../figures_py/risk_sensitive_js.png"):
 
     fig, axes = plt.subplots(len(theta_vals), 1, figsize=(9, 22))
 
@@ -93,3 +90,5 @@ def plot_main(theta_vals=(-10, 0.0001, 0.1),
 
     if savefig:
         fig.savefig(figname)
+
+plot_main(savefig=True)

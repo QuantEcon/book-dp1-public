@@ -88,7 +88,7 @@ import matplotlib.pyplot as plt
 
 
 def plot_policy(savefig=False,
-                figname="./figures/firm_hiring_pol.pdf"):
+                figname="../figures_py/firm_hiring_pol.png"):
     model = create_hiring_model()
     β, κ, α, p, w, l_grid, z_grid, Q = model
     σ_star = optimistic_policy_iteration(model)
@@ -130,7 +130,7 @@ def sim_dynamics(model, ts_length):
 
 
 def plot_sim(savefig=False,
-             figname="./figures/firm_hiring_ts.pdf",
+             figname="../figures_py/firm_hiring_ts.png",
              ts_length = 250):
     model = create_hiring_model()
     β, κ, α, p, w, l_grid, z_grid, Q = model
@@ -149,7 +149,7 @@ def plot_sim(savefig=False,
 
 
 def plot_growth(savefig=False,
-                figname="./figures/firm_hiring_g.pdf",
+                figname="../figures_py/firm_hiring_g.png",
                 ts_length = 10_000_000):
 
     model = create_hiring_model()
@@ -170,3 +170,7 @@ def plot_growth(savefig=False,
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_sim(savefig=True)
+plot_policy(savefig=True)
+plot_growth(savefig=True)

@@ -15,6 +15,7 @@ import numpy as np
 from time import time
 from numba import njit, prange
 from collections import namedtuple
+import matplotlib.pyplot as plt
 
 # NamedTuple Model
 Model = namedtuple("Model", ("K", "c", "κ", "p", "r", 
@@ -147,8 +148,6 @@ def optimistic_policy_iteration(v_init,
 
 # == Plots == #
 
-import matplotlib.pyplot as plt
-
 # Create an instance of the model and solve it
 model = create_sdd_inventory_model()
 K, c, κ, p, r, R, y_vals, z_vals, Q = model
@@ -171,7 +170,7 @@ def sim_inventories(ts_length, X_init=0):
 
 def plot_ts(ts_length=400,
             fontsize=10,
-            figname="./figures/inventory_sdd_ts.pdf",
+            figname="../figures_py/inventory_sdd_ts.png",
             savefig=False):
     
     X, Z = sim_inventories(ts_length)
@@ -221,5 +220,8 @@ def plot_timing(m_vals=np.arange(1, 400, 10),
     ax.set_ylabel("time", fontsize=fontsize)
     plt.show()
     if savefig:
-        fig.savefig("./figures/inventory_sdd_timing.pdf")
+        fig.savefig("../figures_py/inventory_sdd_timing.png")
     return (opi_time, vfi_time, opi_times)
+
+plot_ts(savefig=True)
+plot_timing(savefig=True)

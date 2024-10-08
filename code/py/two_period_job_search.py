@@ -3,6 +3,7 @@ from quantecon.distributions import BetaBinomial
 import numpy as np
 from numba import njit
 from collections import namedtuple
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -52,9 +53,6 @@ def res_wage(model):
 
 ##### Plots #####
 
-import matplotlib.pyplot as plt
-
-
 default_model = create_job_search_model()
 
 
@@ -69,7 +67,7 @@ def fig_dist(model=default_model, fs=10):
 
 
 def fig_v1(model=default_model, savefig=False,
-                  figname="./figures/iid_job_search_0_py.pdf", fs=18):
+           figname="../figures_py/iid_job_search_0_py.png", fs=12):
     """
     Plot two-period value function and res wage
     """
@@ -100,3 +98,5 @@ def fig_v1(model=default_model, savefig=False,
     if savefig:
         fig.savefig(figname)
     plt.show()
+
+fig_v1(savefig=True)

@@ -8,8 +8,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df_nominal = pd.read_csv("./data/GS1.csv")
-df_real = pd.read_csv("./data/WFII10.csv")
+df_nominal = pd.read_csv("data/GS1.csv")
+df_real = pd.read_csv("data/WFII10.csv")
 
 def plot_rates(df, fontsize=16, savefig=False):
     r_type = 'nominal' if df.equals(df_nominal) else 'real'
@@ -20,4 +20,7 @@ def plot_rates(df, fontsize=16, savefig=False):
     ax.legend(fontsize=fontsize, frameon=False)
     plt.show()
     if savefig:
-        fig.savefig(f'./figures/plot_interest_rates_{r_type}.pdf')
+        fig.savefig(f'../figures_py/plot_interest_rates_{r_type}.png')
+
+plot_rates(df_nominal, savefig=True)
+plot_rates(df_real, savefig=True)

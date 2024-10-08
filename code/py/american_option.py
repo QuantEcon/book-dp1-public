@@ -7,6 +7,7 @@ from quantecon.markov import tauchen, MarkovChain
 from quantecon import compute_fixed_point
 
 import numpy as np
+import matplotlib.pyplot as plt
 from collections import namedtuple
 from numba import njit, prange
 
@@ -36,7 +37,7 @@ def create_american_option_model(
     z_vals, Q = mc.state_values + μ, mc.P
     w_vals, φ, β = np.array([-s, s]), np.array([0.5, 0.5]), 1 / (1 + r)
     return Model(t_vals=t_vals, z_vals=z_vals, w_vals=w_vals, Q=Q,
-                φ=φ, T=T, β=β, K=K)
+                 φ=φ, T=T, β=β, K=K)
 
 
 @njit(parallel=True)
@@ -72,12 +73,8 @@ def compute_cvf(model):
 
 # Plots
 
-
-import matplotlib.pyplot as plt
-
-
 def plot_contours(savefig=False,
-                  figname="./figures/american_option_1.pdf"):
+                  figname="../figures_py/american_option_1.png"):
 
     model = create_american_option_model()
     t_vals, z_vals, w_vals, Q, φ, T, β, K = model
@@ -110,7 +107,7 @@ def plot_contours(savefig=False,
 
 def plot_strike(savefig=False,
                 fontsize=9,
-                figname="./figures/american_option_2.pdf"):
+                figname="../figures_py/american_option_2.png"):
     model = create_american_option_model()
     t_vals, z_vals, w_vals, Q, φ, T, β, K = model
     h_star = compute_cvf(model)

@@ -4,6 +4,7 @@ import numpy as np
 from collections import namedtuple
 from numba import njit, prange
 from math import floor
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -184,11 +185,8 @@ gini = lambda v: (2 * sum(i * y for (i, y) in enumerate(v))/sum(v) - (len(v) + 1
 # Plots
 
 
-import matplotlib.pyplot as plt
-
-
 def plot_contours(savefig=False,
-                  figname="./figures/modified_opt_savings_1.pdf"):
+                  figname="../figures_py/modified_opt_savings_1.png"):
 
     model = create_savings_model()
     β, γ, η_grid, φ, w_grid, y_grid, Q = model
@@ -221,6 +219,7 @@ def plot_contours(savefig=False,
         fig.savefig(figname)
     plt.show()
 
+
 def plot_policies(savefig=False):
     model = create_savings_model()
     β, γ, η_grid, φ, w_grid, y_grid, Q = model
@@ -237,7 +236,8 @@ def plot_policies(savefig=False):
     ax.legend()
     plt.show()
     if savefig:
-        fig.savefig(f"./figures/modified_opt_saving_2.pdf")
+        fig.savefig("../figures_py/modified_opt_saving_2.png")
+
 
 def plot_time_series(m=2_000, savefig=False):
 
@@ -248,7 +248,8 @@ def plot_time_series(m=2_000, savefig=False):
     ax.legend()
     plt.show()
     if savefig:
-        fig.savefig("./figures/modified_opt_saving_ts.pdf")
+        fig.savefig("../figures_py/modified_opt_saving_ts.png")
+
 
 def plot_histogram(m=1_000_000, savefig=False):
 
@@ -262,7 +263,8 @@ def plot_histogram(m=1_000_000, savefig=False):
     plt.show()
 
     if savefig:
-        fig.savefig("./figures/modified_opt_saving_hist.pdf")
+        fig.savefig("../figures_py/modified_opt_saving_hist.png")
+
 
 def plot_lorenz(m=1_000_000, savefig=False):
 
@@ -277,4 +279,10 @@ def plot_lorenz(m=1_000_000, savefig=False):
     plt.show()
 
     if savefig:
-        fig.savefig("./figures/modified_opt_saving_lorenz.pdf")
+        fig.savefig("../figures_py/modified_opt_saving_lorenz.png")
+
+plot_contours(savefig=True)
+plot_histogram(savefig=True)
+plot_lorenz(savefig=True)
+plot_policies(savefig=True)
+plot_time_series(savefig=True)

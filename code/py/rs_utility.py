@@ -4,6 +4,7 @@ from quantecon.markov import tauchen
 import numpy as np
 from numba import njit
 from collections import namedtuple
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -38,12 +39,8 @@ def compute_rs_utility(model):
 
 # Plots
 
-
-import matplotlib.pyplot as plt
-
-
 def plot_v(savefig=False,
-           figname="./figures/rs_utility_1.pdf"):
+           figname="../figures_py/rs_utility_1.png"):
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     model = create_rs_utility_model()
@@ -67,7 +64,7 @@ def plot_v(savefig=False,
 
 
 def plot_multiple_v(savefig=False,
-                    figname="./figures/rs_utility_2.pdf"):
+                    figname="../figures_py/rs_utility_2.png"):
 
     fig, ax = plt.subplots(figsize=(10, 5.2))
     σ_vals = 0.05, 0.1
@@ -85,3 +82,6 @@ def plot_multiple_v(savefig=False,
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_v(savefig=True)
+plot_multiple_v(savefig=True)

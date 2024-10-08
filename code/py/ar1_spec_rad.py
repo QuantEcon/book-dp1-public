@@ -9,6 +9,7 @@ The process is discretized using the Tauchen method with n states.
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
 
 from quantecon.markov import tauchen
 
@@ -69,12 +70,9 @@ print(compute_mc_spec_rad(n, ρ, σ, μ, m, b))
 # Plots
 
 
-import matplotlib.pyplot as plt
-
-
 def plot_beta_sim(T=80,
                   savefig=True,
-                  figname="./figures/ar1_spec_rad.png"):
+                  figname="../figures_py/ar1_spec_rad.png"):
     β_vals = np.zeros(T)
     Z = 1
     for t in range(T):
@@ -92,5 +90,3 @@ def plot_beta_sim(T=80,
     if savefig:
         fig.savefig(figname)
     plt.show()
-
-plot_beta_sim()

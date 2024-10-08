@@ -6,6 +6,7 @@ Price-dividend ratio in a model with dividend and consumption growth.
 from quantecon.markov import tauchen
 import numpy as np
 from collections import namedtuple
+import matplotlib.pyplot as plt
 
 
 # NamedTuple Model
@@ -50,16 +51,12 @@ def pd_ratio(model):
 
 # == Plots == #
 
-
-import matplotlib.pyplot as plt
-
-
 default_model = create_asset_pricing_model()
 
 
 def plot_main(μ_d_vals=(0.02, 0.08),
               savefig=False,
-              figname="./figures/pd_ratio_1.pdf"):
+              figname="../figures_py/pd_ratio_1.png"):
     fig, ax = plt.subplots(figsize=(9, 5.2))
 
     for μ_d in μ_d_vals:
@@ -74,3 +71,5 @@ def plot_main(μ_d_vals=(0.02, 0.08),
     plt.show()
     if savefig:
         fig.savefig(figname)
+
+plot_main(savefig=True)

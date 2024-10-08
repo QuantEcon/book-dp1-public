@@ -118,7 +118,7 @@ def plot_timing(m_vals=np.arange(1, 601, 10),
     ax.set_ylabel("time")
     plt.show()
     if savefig:
-        fig.savefig("./figures/finite_opt_saving_2_1.png")
+        fig.savefig("../figures_py/finite_opt_saving_2_1.png")
     return (pi_time, vfi_time, opi_times)
 
 
@@ -140,7 +140,7 @@ def plot_policy(method="pi", savefig=False):
     plt.title(f"Method: {method}")
     plt.show()
     if savefig:
-        fig.savefig(f"./figures/finite_opt_saving_2_2_{method}.png")
+        fig.savefig(f"../figures_py/finite_opt_saving_2_2_{method}.png")
 
 def plot_time_series(m=2_000, savefig=False):
 
@@ -151,7 +151,7 @@ def plot_time_series(m=2_000, savefig=False):
     ax.legend()
     plt.show()
     if savefig:
-        fig.savefig("./figures/finite_opt_saving_ts.pdf")
+        fig.savefig("../figures_py/finite_opt_saving_ts.png")
 
 def plot_histogram(m=1_000_000, savefig=False):
 
@@ -165,7 +165,7 @@ def plot_histogram(m=1_000_000, savefig=False):
     plt.show()
 
     if savefig:
-        fig.savefig("./figures/finite_opt_saving_hist.pdf")
+        fig.savefig("../figures_py/finite_opt_saving_hist.png")
 
 def plot_lorenz(m=1_000_000, savefig=False):
 
@@ -180,4 +180,10 @@ def plot_lorenz(m=1_000_000, savefig=False):
     plt.show()
 
     if savefig:
-        fig.savefig("./figures/finite_opt_saving_lorenz.pdf")
+        fig.savefig("../figures_py/finite_opt_saving_lorenz.png")
+
+plot_timing(savefig=True)
+plot_histogram(savefig=True)
+plot_lorenz(savefig=True)
+plot_policy(savefig=True)
+plot_time_series(savefig=True)
