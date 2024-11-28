@@ -15,7 +15,7 @@ fig, ax = plt.subplots(figsize=(10, 5.5))
 # Plot the functions
 lb = L"g"
 ax.plot(x_grid, g.(x_grid),  lw=2, alpha=0.6, label=lb)
-ax.plot(x_grid, x_grid, "k--", lw=1, alpha=0.7, label=L"45")
+ax.plot(x_grid, x_grid, "k--", lw=1, alpha=0.7, label="45 degree line")
 
 # Show and annotate the fixed point
 fps = (xstar,)
@@ -35,6 +35,6 @@ ax.set_ylim(0, 3)
 ax.set_xlim(0, 3)
 
 plt.show()
-#fig.savefig("../figures/concave_map_fp.pdf")
+fig.savefig("../figures/concave_map_fp.pdf")
 
 
