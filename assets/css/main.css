@@ -3103,6 +3103,13 @@ input, select, textarea {
 						display: inline;
 					}
 
+			.amazon-link-container {
+				position: relative;
+				top: auto;
+				padding: 1.5em 0 0 0;
+				text-align: center;
+			}
+
 		/* Footer */
 
 			#footer {
@@ -3193,6 +3200,10 @@ input, select, textarea {
 				#header h1 {
 					font-size: 1.35em;
 				}
+
+			.amazon-link-container {
+				padding: 1em 0 0 0;
+			}
 
 		/* Footer */
 
