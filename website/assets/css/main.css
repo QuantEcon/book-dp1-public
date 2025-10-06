@@ -97,13 +97,15 @@ input, select, textarea {
 			transition: none !important;
 		}
 
-body, input, select, textarea {
-	color: #a2a2a2;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-size: 16pt;
-	font-weight: 400;
-	line-height: 1.75em;
-}	/* LINKS */
+	body, input, select, textarea {
+		color: #a2a2a2;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 16pt;
+		font-weight: 400;
+		line-height: 1.75em;
+	}	
+
+	/* LINKS */
 	a {
 		-moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -2640,12 +2642,42 @@ body, input, select, textarea {
 		margin: 0;
 	}		#header .image.avatar {
 			margin: 0 0 1em 0;
-			width: 6.25em;
-		}
+	width: 6.25em;
+}
 
-/* Footer */
+.amazon-link-container {
+	text-align: right;
+	padding: 0 4em;
+	position: absolute;
+	bottom: auto;
+	top: 26.5em;
+	right: 0;
+	left: 0;
+}
 
-	#footer .icons {
+.amazon-button {
+	display: inline-block;
+	background: transparent;
+	color: #c9c9c9 !important;
+	padding: 4px 10px;
+	border-radius: 4px;
+	font-weight: 400;
+	font-size: 1.0em;
+	text-decoration: none;
+	border: 1px solid rgba(255, 255, 255, 0.2) !important;
+	box-shadow: none;
+	transition: all 0.3s ease;
+	margin-top: 5px;
+}
+
+.amazon-button:hover {
+	background: rgba(255, 255, 255, 0.05);
+	transform: none;
+	box-shadow: none;
+	color: #ffffff !important;
+	border-color: rgba(255, 255, 255, 0.3) !important;
+}
+/* Footer */	#footer .icons {
 		margin: 1em 0 0 0;
 	}
 
