@@ -97,15 +97,13 @@ input, select, textarea {
 			transition: none !important;
 		}
 
-	body, input, select, textarea {
-		color: #a2a2a2;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-size: 16pt;
-		font-weight: 400;
-		line-height: 1.75em;
-	}
-
-	/* LINKS */
+body, input, select, textarea {
+	color: #a2a2a2;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: 400;
+	line-height: 1.75em;
+}	/* LINKS */
 	a {
 		-moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -2624,26 +2622,23 @@ input, select, textarea {
 			margin: 0 0 2em 0;
 		}
 
-		#header strong, #header b {
-			color: #ffffff;
-		}
+	#header strong, #header b {
+		color: #ffffff;
+	}
 
-		#header a {
-			color: #a2a2a2;
-		}
+	#header a {
+		color: #a2a2a2;
+		font-size: 1.2em;
+	}	#header h2, #header h3, #header h4, #header h5, #header h6 {
+		color: #ffffff;
+	}
 
-		#header h2, #header h3, #header h4, #header h5, #header h6 {
-			color: #ffffff;
-		}
-
-		#header h1 {
-			color: rgba(255, 255, 255, 0.5);
-			font-size: 3.5em;
-			line-height: 1em;
-			margin: 0;
-		}
-
-		#header .image.avatar {
+	#header h1 {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 3.5em;
+		line-height: 1em;
+		margin: 0;
+	}		#header .image.avatar {
 			margin: 0 0 1em 0;
 			width: 6.25em;
 		}
@@ -2985,17 +2980,15 @@ input, select, textarea {
 
 /* XLarge */
 
-	@media screen and (max-width: 1800px) {
+@media screen and (max-width: 1800px) {
 
-		/* Basic */
+	/* Basic */
 
-			body, input, select, textarea {
-				font-size: 12pt;
-			}
+		body, input, select, textarea {
+			font-size: 14pt;
+		}
 
-	}
-
-/* Large */
+}/* Large */
 
 	@media screen and (max-width: 1280px) {
 
