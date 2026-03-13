@@ -2731,6 +2731,69 @@ input, select, textarea {
 .download-button:hover {
 	color: #ffffff !important;
 }
+
+/* TOC Tabs */
+
+.toc-tabs {
+	margin-top: 1em;
+}
+
+.tab-buttons {
+	display: flex;
+	gap: 0;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 1.5em;
+}
+
+.tab-btn {
+	background: none;
+	border: none;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -2px;
+	padding: 0.6em 1.2em;
+	font-family: inherit;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: #666;
+	cursor: pointer;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-btn:hover {
+	color: #333;
+}
+
+.tab-btn.active {
+	color: #49bf9d;
+	border-bottom-color: #49bf9d;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.tab-content ol {
+	list-style: decimal;
+	padding-left: 1.5em;
+	margin: 0 0 0.5em 0;
+}
+
+.tab-content ol li {
+	padding: 0.25em 0;
+	color: #555;
+}
+
+.tab-content h4 {
+	margin: 1em 0 0.4em 0;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: #333;
+}
+
 /* Footer */	#footer .icons {
 		margin: 1em 0 0 0;
 	}
