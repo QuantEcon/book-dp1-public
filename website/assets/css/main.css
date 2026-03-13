@@ -196,6 +196,27 @@ input, select, textarea {
 		margin: 2em 0;
 	}
 
+	#toc ol {
+		list-style: none;
+		counter-reset: toc-counter -1;
+		padding: 0;
+		margin: 0;
+	}
+
+	#toc ol li {
+		counter-increment: toc-counter;
+		padding: 0.4em 0;
+		color: #a2a2a2;
+		font-size: 0.95em;
+		line-height: 1.6em;
+	}
+
+	#toc ol li::before {
+		content: counter(toc-counter) ". ";
+		color: #c0c0c0;
+		margin-right: 0.3em;
+	}
+
 		hr.major {
 			margin: 3em 0;
 		}
