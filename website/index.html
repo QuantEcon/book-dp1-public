@@ -60,11 +60,11 @@
                 <h2>Table of Contents</h2>
             </header>
             <div class="toc-tabs">
-                <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="vol1">Volume I: Finite States</button>
-                    <button class="tab-btn" data-tab="vol2">Volume II: General States</button>
+                <div class="tab-buttons" role="tablist">
+                    <button class="tab-btn active" data-tab="vol1" role="tab" aria-selected="true" aria-controls="vol1" id="tab-vol1">Volume I: Finite States</button>
+                    <button class="tab-btn" data-tab="vol2" role="tab" aria-selected="false" aria-controls="vol2" id="tab-vol2">Volume II: General States</button>
                 </div>
-                <div class="tab-content active" id="vol1">
+                <div class="tab-content active" id="vol1" role="tabpanel" aria-labelledby="tab-vol1">
                     <ol>
                         <li>Introduction</li>
                         <li>Operators and Fixed Points</li>
@@ -78,22 +78,16 @@
                         <li>Continuous Time</li>
                     </ol>
                 </div>
-                <div class="tab-content" id="vol2">
+                <div class="tab-content" id="vol2" role="tabpanel" aria-labelledby="tab-vol2">
                     <ol>
                         <li>Prelude: Examples of Dynamic Programs</li>
-                    </ol>
-                    <h4>Part I: General Theory</h4>
-                    <ol start="2">
-                        <li>Abstract Dynamic Programs (Part 1)</li>
-                        <li>Abstract Dynamic Programs (Part 2)</li>
-                        <li>Abstract Dynamic Programs (Part 3)</li>
-                        <li>Transforms</li>
-                    </ol>
-                    <h4>Part II: Models and Applications</h4>
-                    <ol start="6">
-                        <li>Concave DP Problems</li>
-                        <li>Risk-Sensitive Dynamic Programming</li>
-                        <li>Applications</li>
+                        <li value="2">Abstract Dynamic Programs (Part 1)</li>
+                        <li value="3">Abstract Dynamic Programs (Part 2)</li>
+                        <li value="4">Abstract Dynamic Programs (Part 3)</li>
+                        <li value="5">Transforms</li>
+                        <li value="6">Concave DP Problems</li>
+                        <li value="7">Risk-Sensitive Dynamic Programming</li>
+                        <li value="8">Applications</li>
                     </ol>
                 </div>
             </div>
@@ -167,16 +161,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        document.querySelectorAll('.tab-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-                document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
-                btn.classList.add('active');
-                document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
-            });
-        });
-    </script>
 
 </body>
 

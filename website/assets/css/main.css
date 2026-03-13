@@ -2789,7 +2789,7 @@ input, select, textarea {
 	font-family: inherit;
 	font-size: 0.9em;
 	font-weight: 600;
-	color: #999;
+	color: #767676;
 	cursor: pointer;
 	transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -2820,13 +2820,6 @@ input, select, textarea {
 .tab-content ol li {
 	padding: 0.25em 0;
 	color: #555;
-}
-
-.tab-content h4 {
-	margin: 1em 0 0.4em 0;
-	font-size: 0.9em;
-	font-weight: 600;
-	color: #333;
 }
 
 /* Footer */	#footer .icons {
