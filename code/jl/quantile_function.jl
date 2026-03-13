@@ -1,14 +1,18 @@
 import Distributions.quantile, Distributions.DiscreteNonParametric
 
-"Compute the τ-th quantile of v(X) when X ∼ ϕ and v = sort(v)."
+"Compute the τ-th quantile of v(X) when X ∼ ϕ."
 function quantile(τ, v, ϕ)
-    for (i, v_value) in enumerate(v)
-        p = sum(ϕ[1:i])  # sum all ϕ[j] s.t. v[j] ≤ v_value
-        if p ≥ τ         # exit and return v_value if prob ≥ τ
+    # Sort v and reorder ϕ accordingly
+    indices = sortperm(v)
+    v_sorted = v[indices]
+    ϕ_sorted = ϕ[indices]
+    
+    for (i, v_value) in enumerate(v_sorted)
+        p = sum(ϕ_sorted[1:i])  # sum all ϕ[j] s.t. v[j] ≤ v_value
+        if p ≥ τ                # exit and return v_value if prob ≥ τ
             return v_value
         end
     end
-
 end
 
 "For each i, compute the τ-th quantile of v(Y) when Y ∼ P(i, ⋅)"

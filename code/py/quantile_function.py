@@ -5,10 +5,15 @@ from numba import njit
 
 @njit
 def quantile(τ, v, ϕ):
-    """Compute the τ-th quantile of v(X) when X ∼ ϕ and v = sort(v)."""
-    for (i, v_value) in enumerate(v):
-        p = sum(ϕ[:i+1])  # sum all ϕ[j] s.t. v[j] ≤ v_value
-        if p >= τ:         # exit and return v_value if prob ≥ τ
+    """Compute the τ-th quantile of v(X) when X ∼ ϕ."""
+    # Sort v and reorder ϕ accordingly
+    indices = np.argsort(v)
+    v_sorted = v[indices]
+    ϕ_sorted = ϕ[indices]
+    
+    for (i, v_value) in enumerate(v_sorted):
+        p = np.sum(ϕ_sorted[:i+1])  # sum all ϕ[j] s.t. v[j] ≤ v_value
+        if p >= τ:                   # exit and return v_value if prob ≥ τ
             return v_value
 
 
