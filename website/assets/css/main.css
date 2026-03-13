@@ -1820,7 +1820,9 @@ input, select, textarea {
 	}
 
 	header.major h2 {
-		font-size: 2em;
+		font-size: 1.8em;
+		color: #333;
+		letter-spacing: -0.01em;
 	}
 
 /* Form */
@@ -2696,7 +2698,7 @@ input, select, textarea {
 	display: inline-block;
 	background: transparent;
 	color: #c9c9c9 !important;
-	padding: 4px 10px;
+	padding: 6px 16px;
 	border-radius: 4px;
 	font-weight: 400;
 	font-size: 1.0em;
@@ -2704,7 +2706,6 @@ input, select, textarea {
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	box-shadow: none;
 	transition: all 0.3s ease;
-	margin-top: 5px;
 }
 
 .amazon-button:hover {
@@ -2715,21 +2716,58 @@ input, select, textarea {
 	border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
+.amazon-subtitle {
+	display: block;
+	color: rgba(255, 255, 255, 0.35);
+	font-size: 0.75em;
+	margin-top: 0.3em;
+}
+
+.download-links {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.4em;
+	margin-top: 2em;
+}
+
+.download-sep {
+	color: rgba(255, 255, 255, 0.25);
+	font-size: 0.85em;
+}
+
 .download-button {
 	display: inline-block;
 	color: #c9c9c9 !important;
-	padding: 4px 10px;
+	padding: 2px 6px;
 	font-weight: 400;
 	font-size: 0.85em;
 	text-decoration: none;
 	border: none !important;
 	box-shadow: none;
 	transition: color 0.3s ease;
-	margin-top: 15px;
 }
 
 .download-button:hover {
 	color: #ffffff !important;
+}
+
+.qe-logo {
+	position: absolute;
+	top: 1.5em;
+	right: 1.5em;
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+	border: none !important;
+}
+
+.qe-logo:hover {
+	opacity: 0.85;
+}
+
+.qe-logo img {
+	width: 32px;
+	height: auto;
 }
 
 /* TOC Tabs */
@@ -2754,18 +2792,18 @@ input, select, textarea {
 	font-family: inherit;
 	font-size: 0.9em;
 	font-weight: 600;
-	color: #666;
+	color: #999;
 	cursor: pointer;
 	transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .tab-btn:hover {
-	color: #333;
+	color: #555;
 }
 
 .tab-btn.active {
-	color: #49bf9d;
-	border-bottom-color: #49bf9d;
+	color: #444;
+	border-bottom-color: #444;
 }
 
 .tab-content {
@@ -2838,9 +2876,9 @@ input, select, textarea {
 	}
 
 		#main > section {
-			border-top: solid 1px #e8e8e8;
-			margin: 3em 0 0 0;
-			padding: 3em 0 0 0;
+			border-top: solid 1px #ebebeb;
+			margin: 2.5em 0 0 0;
+			padding: 2.5em 0 0 0;
 		}
 
 			#main > section:first-child {
@@ -3225,6 +3263,15 @@ input, select, textarea {
 				top: auto;
 				padding: 1.5em 0 0 0;
 				text-align: center;
+			}
+
+			.download-links {
+				justify-content: center;
+			}
+
+			.qe-logo {
+				top: 1em;
+				right: 1em;
 			}
 
 		/* Footer */
