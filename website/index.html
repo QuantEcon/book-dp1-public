@@ -10,9 +10,9 @@
     <title>Dynamic Programming</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <meta name="description" content="Dynamic Programming: Theory and Applications in Economics, Finance, and Operations Research. By Thomas J. Sargent and John Stachurski." />
+    <meta name="description" content="Dynamic Programming: Volume I (Finite States) and Volume II (General States). By Thomas J. Sargent and John Stachurski." />
     <meta property="og:title" content="Dynamic Programming" />
-    <meta property="og:description" content="Dynamic Programming: Theory and Applications in Economics, Finance, and Operations Research. By Thomas J. Sargent and John Stachurski." />
+    <meta property="og:description" content="Dynamic Programming: Volume I (Finite States) and Volume II (General States). By Thomas J. Sargent and John Stachurski." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dp.quantecon.org/" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -23,29 +23,34 @@
     <!-- Header -->
     <header id="header">
         <div class="inner">
-            <!-- <a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a> -->
             <h1><b>Dynamic Programming</b></h1>
             <br>
             <a href="https://www.tomsargent.com/">Thomas J. Sargent</a> and <a href="https://johnstachurski.net/">John Stachurski</a>
         </div>
         <div class="amazon-link-container">
-            <a href="https://www.amazon.com/Dynamic-Programming-Finite-Thomas-Sargent/dp/1009540750/" class="amazon-button">Buy on Amazon</a>
-            <br>
-            <a href="https://github.com/QuantEcon/book-dp1-public/raw/main/pdf/dp.pdf" class="download-button">Download the textbook</a>
+            <a href="https://www.amazon.com/Dynamic-Programming-Finite-Thomas-Sargent/dp/1009540750/" class="amazon-button">Buy on Amazon<span class="amazon-vol">(Volume I)</span></a>
+            <div class="download-links">
+                <a href="https://github.com/QuantEcon/book-dp1-public/raw/main/pdf/dp.pdf" class="download-button">Download Vol I (PDF)</a>
+                <span class="download-sep">&middot;</span>
+                <a href="https://github.com/QuantEcon/book-dp1-public/raw/main/pdf/dp2.pdf" class="download-button">Download Vol II (PDF)</a>
+            </div>
         </div>
     </header>
 
     <!-- Main -->
     <div id="main">
+        <a href="https://quantecon.org" class="qe-logo"><img src="images/qe-menubar-logo.svg" alt="QuantEcon"></a>
 
         <!-- Introduction -->
         <section id="intro">
             <header class="major">
-                <h2>Introduction</h2>
+                <h2>About</h2>
             </header>
             <p>
-                This book is about dynamic programming and its applications in economics, finance, and adjacent fields like operations research. It brings together recent innovations in the theory of dynamic programming and also provides related applications and computer
-                code.
+                These books cover dynamic programming and its applications in
+                economics, finance, and adjacent fields like operations research.
+                They bring together recent innovations in the theory of dynamic
+                programming and also provide related applications and computer code.
             </p>
         </section>
 
@@ -54,18 +59,38 @@
             <header class="major">
                 <h2>Table of Contents</h2>
             </header>
-            <ol>
-                <li>Introduction</li>
-                <li>Operators and Fixed Points</li>
-                <li>Markov Dynamics</li>
-                <li>Optimal Stopping</li>
-                <li>Markov Decision Processes</li>
-                <li>Stochastic Discounting</li>
-                <li>Valuation</li>
-                <li>Recursive Decision Processes</li>
-                <li>Abstract Dynamic Programming</li>
-                <li>Continuous Time</li>
-            </ol>
+            <div class="toc-tabs">
+                <div class="tab-buttons" role="tablist">
+                    <button class="tab-btn active" data-tab="vol1" role="tab" aria-selected="true" aria-controls="vol1" id="tab-vol1">Volume I: Finite States</button>
+                    <button class="tab-btn" data-tab="vol2" role="tab" aria-selected="false" aria-controls="vol2" id="tab-vol2">Volume II: General States</button>
+                </div>
+                <div class="tab-content active" id="vol1" role="tabpanel" aria-labelledby="tab-vol1">
+                    <ol>
+                        <li>Introduction</li>
+                        <li>Operators and Fixed Points</li>
+                        <li>Markov Dynamics</li>
+                        <li>Optimal Stopping</li>
+                        <li>Markov Decision Processes</li>
+                        <li>Stochastic Discounting</li>
+                        <li>Valuation</li>
+                        <li>Recursive Decision Processes</li>
+                        <li>Abstract Dynamic Programming</li>
+                        <li>Continuous Time</li>
+                    </ol>
+                </div>
+                <div class="tab-content" id="vol2" role="tabpanel" aria-labelledby="tab-vol2">
+                    <ol>
+                        <li>Prelude: Examples of Dynamic Programs</li>
+                        <li value="2">Abstract Dynamic Programs (Part 1)</li>
+                        <li value="3">Abstract Dynamic Programs (Part 2)</li>
+                        <li value="4">Abstract Dynamic Programs (Part 3)</li>
+                        <li value="5">Transforms</li>
+                        <li value="6">Concave DP Problems</li>
+                        <li value="7">Risk-Sensitive Dynamic Programming</li>
+                        <li value="8">Applications</li>
+                    </ol>
+                </div>
+            </div>
         </section>
 
         <!-- Downloads -->
@@ -73,16 +98,25 @@
             <header class="major">
                 <h2>Download</h2>
             </header>
+            <h4>Volume I: Finite States</h4>
             <div class="align-center">
                 <ul class="actions fit">
                     <li>
-                        <a href="https://github.com/QuantEcon/book-dp1-public/raw/main/pdf/dp.pdf" class="button fit"><img src="images/book.png" width="15" alt="Book icon">Book</a>
+                        <a href="https://github.com/QuantEcon/book-dp1-public/raw/main/pdf/dp.pdf" class="button fit"><img src="images/book.png" width="15" alt="Book icon">Book (PDF)</a>
                     </li>
                     <li>
                         <a href="code.html" class="button fit"><img src="images/book.png" width="15" alt="Code icon">Code</a>
                     </li>
                     <li>
                         <a href="slides.html" class="button fit"><img src="images/slides.png" width="14" alt="Slides icon">Slides</a>
+                    </li>
+                </ul>
+            </div>
+            <h4>Volume II: General States</h4>
+            <div class="align-center">
+                <ul class="actions fit">
+                    <li>
+                        <a href="https://github.com/QuantEcon/book-dp1-public/raw/main/pdf/dp2.pdf" class="button fit"><img src="images/book.png" width="15" alt="Book icon">Book (PDF)</a>
                     </li>
                 </ul>
             </div>
