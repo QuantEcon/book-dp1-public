@@ -1,5 +1,5 @@
 @import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 
 /*
 	Strata by HTML5 UP
@@ -76,6 +76,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth;
 	}
 
 	*, *:before, *:after {
@@ -137,7 +138,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #34597c;
-		font-weight: 400;
+		font-weight: 600;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 	}
@@ -2440,19 +2441,21 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		background-color: transparent;
-		border-radius: 0.35em;
-		border: solid 3px #efefef;
+		border-radius: 2em;
+		border: solid 2px #e0e0e0;
 		color: #787878 !important;
 		cursor: pointer;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		font-weight: 400;
 		height: 3.15em;
-		height: calc(2.75em + 6px);
+		height: calc(2.75em + 4px);
 		line-height: 2.75em;
 		min-width: 10em;
 		padding: 0 1.5em;
@@ -2467,6 +2470,8 @@ input, select, textarea {
 		.button:hover {
 			border-color: #34597c;
 			color: #34597c !important;
+			transform: translateY(-1px);
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 		}
 
 		input[type="submit"]:active,
@@ -2505,6 +2510,11 @@ input, select, textarea {
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
+		}
+
+		.button img {
+			vertical-align: middle;
+			margin-right: 8px;
 		}
 
 		input[type="submit"].large,
@@ -2677,6 +2687,23 @@ input, select, textarea {
 	color: #ffffff !important;
 	border-color: rgba(255, 255, 255, 0.3) !important;
 }
+
+.download-button {
+	display: inline-block;
+	color: #c9c9c9 !important;
+	padding: 4px 10px;
+	font-weight: 400;
+	font-size: 0.85em;
+	text-decoration: none;
+	border: none !important;
+	box-shadow: none;
+	transition: all 0.3s ease;
+	margin-top: 15px;
+}
+
+.download-button:hover {
+	color: #ffffff !important;
+}
 /* Footer */	#footer .icons {
 		margin: 1em 0 0 0;
 	}
@@ -2721,9 +2748,9 @@ input, select, textarea {
 	}
 
 		#main > section {
-			border-top: solid 2px #efefef;
-			margin: 4em 0 0 0;
-			padding: 4em 0 0 0;
+			border-top: solid 1px #e8e8e8;
+			margin: 3em 0 0 0;
+			padding: 3em 0 0 0;
 		}
 
 			#main > section:first-child {
