@@ -1,5 +1,5 @@
 @import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
 
 /*
 	Strata by HTML5 UP
@@ -76,6 +76,13 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 
 	*, *:before, *:after {
@@ -137,7 +144,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #34597c;
-		font-weight: 400;
+		font-weight: 600;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 	}
@@ -193,6 +200,27 @@ input, select, textarea {
 		border: 0;
 		border-bottom: solid 2px #efefef;
 		margin: 2em 0;
+	}
+
+	#toc ol {
+		list-style: none;
+		counter-reset: toc-counter 0;
+		padding: 0;
+		margin: 0;
+	}
+
+	#toc ol li {
+		counter-increment: toc-counter;
+		padding: 0.4em 0;
+		color: #a2a2a2;
+		font-size: 0.95em;
+		line-height: 1.6em;
+	}
+
+	#toc ol li::before {
+		content: counter(toc-counter) ". ";
+		color: #c0c0c0;
+		margin-right: 0.3em;
 	}
 
 		hr.major {
@@ -1792,7 +1820,9 @@ input, select, textarea {
 	}
 
 	header.major h2 {
-		font-size: 2em;
+		font-size: 1.8em;
+		color: #333;
+		letter-spacing: -0.01em;
 	}
 
 /* Form */
@@ -2440,19 +2470,21 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		background-color: transparent;
-		border-radius: 0.35em;
-		border: solid 3px #efefef;
+		border-radius: 2em;
+		border: solid 2px #e0e0e0;
 		color: #787878 !important;
 		cursor: pointer;
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		font-weight: 400;
 		height: 3.15em;
-		height: calc(2.75em + 6px);
+		height: calc(2.75em + 4px);
 		line-height: 2.75em;
 		min-width: 10em;
 		padding: 0 1.5em;
@@ -2467,6 +2499,8 @@ input, select, textarea {
 		.button:hover {
 			border-color: #34597c;
 			color: #34597c !important;
+			transform: translateY(-1px);
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 		}
 
 		input[type="submit"]:active,
@@ -2505,6 +2539,11 @@ input, select, textarea {
 		input[type="button"].small,
 		.button.small {
 			font-size: 0.8em;
+		}
+
+		.button img {
+			vertical-align: middle;
+			margin-right: 8px;
 		}
 
 		input[type="submit"].large,
@@ -2659,7 +2698,7 @@ input, select, textarea {
 	display: inline-block;
 	background: transparent;
 	color: #c9c9c9 !important;
-	padding: 4px 10px;
+	padding: 6px 16px;
 	border-radius: 4px;
 	font-weight: 400;
 	font-size: 1.0em;
@@ -2667,7 +2706,6 @@ input, select, textarea {
 	border: 1px solid rgba(255, 255, 255, 0.2) !important;
 	box-shadow: none;
 	transition: all 0.3s ease;
-	margin-top: 5px;
 }
 
 .amazon-button:hover {
@@ -2677,6 +2715,113 @@ input, select, textarea {
 	color: #ffffff !important;
 	border-color: rgba(255, 255, 255, 0.3) !important;
 }
+
+.amazon-vol {
+	display: block;
+	margin-top: 0.15em;
+}
+
+.download-links {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.3em;
+	margin-top: 2em;
+}
+
+.download-sep {
+	display: none;
+}
+
+.download-button {
+	display: inline-block;
+	color: #c9c9c9 !important;
+	padding: 2px 6px;
+	font-weight: 400;
+	font-size: 0.85em;
+	text-decoration: none;
+	border: none !important;
+	box-shadow: none;
+	transition: color 0.3s ease;
+}
+
+.download-button:hover {
+	color: #ffffff !important;
+}
+
+.qe-logo {
+	position: absolute;
+	top: 1.5em;
+	right: 1.5em;
+	transition: opacity 0.3s ease;
+	border: none !important;
+	z-index: 10;
+}
+
+.qe-logo:hover {
+	opacity: 0.7;
+}
+
+.qe-logo img {
+	width: 140px;
+	height: auto;
+}
+
+/* TOC Tabs */
+
+.toc-tabs {
+	margin-top: 1em;
+}
+
+.tab-buttons {
+	display: flex;
+	gap: 0;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+	margin-bottom: 1.5em;
+}
+
+.tab-btn {
+	background: none;
+	border: none;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -2px;
+	padding: 0.6em 1.2em;
+	font-family: inherit;
+	font-size: 0.9em;
+	font-weight: 600;
+	color: #767676;
+	cursor: pointer;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-btn:hover {
+	color: #555;
+}
+
+.tab-btn.active {
+	color: #444;
+	border-bottom-color: #444;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.tab-content ol {
+	list-style: decimal;
+	padding-left: 1.5em;
+	margin: 0 0 0.5em 0;
+}
+
+.tab-content ol li {
+	padding: 0.25em 0;
+	color: #555;
+}
+
 /* Footer */	#footer .icons {
 		margin: 1em 0 0 0;
 	}
@@ -2718,12 +2863,13 @@ input, select, textarea {
 		max-width: 54em;
 		padding: 8em 4em 4em 4em;
 		width: calc(100% - 35%);
+		position: relative;
 	}
 
 		#main > section {
-			border-top: solid 2px #efefef;
-			margin: 4em 0 0 0;
-			padding: 4em 0 0 0;
+			border-top: solid 1px #ebebeb;
+			margin: 2.5em 0 0 0;
+			padding: 2.5em 0 0 0;
 		}
 
 			#main > section:first-child {
@@ -3108,6 +3254,15 @@ input, select, textarea {
 				top: auto;
 				padding: 1.5em 0 0 0;
 				text-align: center;
+			}
+
+			.download-links {
+				align-items: center;
+			}
+
+			.qe-logo {
+				top: 1em;
+				right: 1em;
 			}
 
 		/* Footer */

@@ -98,7 +98,7 @@
 		// Lightbox gallery.
 			$window.on('load', function() {
 
-				$('#two').poptrox({
+				if ($.fn.poptrox) $('#two').poptrox({
 					caption: function($a) { return $a.next('h3').text(); },
 					overlayColor: '#2c2c2c',
 					overlayOpacity: 0.85,
@@ -113,5 +113,23 @@
 				});
 
 			});
+
+	// TOC Tabs.
+		$window.on('load', function() {
+			document.querySelectorAll('.tab-btn').forEach(function(btn) {
+				btn.addEventListener('click', function() {
+					document.querySelectorAll('.tab-btn').forEach(function(b) {
+						b.classList.remove('active');
+						b.setAttribute('aria-selected', 'false');
+					});
+					document.querySelectorAll('.tab-content').forEach(function(c) {
+						c.classList.remove('active');
+					});
+					btn.classList.add('active');
+					btn.setAttribute('aria-selected', 'true');
+					document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+				});
+			});
+		});
 
 })(jQuery);
