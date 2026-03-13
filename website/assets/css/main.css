@@ -79,6 +79,12 @@ input, select, textarea {
 		scroll-behavior: smooth;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 	*, *:before, *:after {
 		box-sizing: inherit;
 	}
@@ -2718,7 +2724,7 @@ input, select, textarea {
 	text-decoration: none;
 	border: none !important;
 	box-shadow: none;
-	transition: all 0.3s ease;
+	transition: color 0.3s ease;
 	margin-top: 15px;
 }
 
