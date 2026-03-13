@@ -198,7 +198,7 @@ input, select, textarea {
 
 	#toc ol {
 		list-style: none;
-		counter-reset: toc-counter -1;
+		counter-reset: toc-counter 0;
 		padding: 0;
 		margin: 0;
 	}
