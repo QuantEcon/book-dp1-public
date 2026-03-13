@@ -2753,14 +2753,13 @@ input, select, textarea {
 	position: absolute;
 	top: 1.5em;
 	right: 1.5em;
-	opacity: 0.45;
 	transition: opacity 0.3s ease;
 	border: none !important;
 	z-index: 10;
 }
 
 .qe-logo:hover {
-	opacity: 0.8;
+	opacity: 0.7;
 }
 
 .qe-logo img {
