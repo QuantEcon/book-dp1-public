@@ -1,6 +1,6 @@
-# Dynamic Programming Volume 1
+# Dynamic Programming Volumes 1 and 2
 
-Public repo for the textbook **Dynamic Programming Volume 1** by [Thomas J.
+Public repo for the **Dynamic Programming** books by [Thomas J.
 Sargent](http://www.tomsargent.com/) and [John
 Stachurski](https://johnstachurski.net/).
 
@@ -13,9 +13,9 @@ Stachurski](https://johnstachurski.net/).
 
 ## PDF
 
-The PDF is available in `pdf/dp.pdf`
+The PDFs are available in `pdf/`
 
-Comments and feedback are very welcome.
+Comments and feedback are welcome.
 The easiest way to provide feedback is to open an issue above.
 
 ## Website
